@@ -8,7 +8,7 @@ class SuggestionsController < ApplicationController
   end
 
   def create
-    @suggestion = Suggestion.new(suggestion_params(params))
+    @suggestion = Suggestion.new(suggestion_params)
     if @suggestion.save
       redirect_to @suggestion
     else
@@ -18,7 +18,7 @@ class SuggestionsController < ApplicationController
 
   private
 
-  def suggestion_params(params)
+  def suggestion_params
     params.require(:suggestion).permit(:title, :content, :votes, :address, :status, :user_id)
   end
 end
