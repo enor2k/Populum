@@ -1,10 +1,7 @@
 <%= simple_form_for @suggestion do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.input :votes %>
   <%= f.input :address %>
-  <%= f.input :status %>
-  <%= f.input :user_id, :label => false , input_html: {value: current_user.id, :class => 'd-none' }%>
   <%= f.submit "Nouvelle suggestion", class: "btn btn-outline-primary " %>
 <% end %>
 

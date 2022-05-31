@@ -1,2 +1,9 @@
-<h1>Bonjour <%= @user.first_name %></h1>
-<p>Your score: <%= @user.score %></p>
+<div class="container">
+  <h1>Bonjour, <%= @user.first_name %></h1>
+  <p>Vos points: <%= @user.score %></p>
+
+
+
+      <h3>Vos suggestions</h3>
+      <%= render "shared/card", locals: {suggestions: @suggestions}%>
+</div>
