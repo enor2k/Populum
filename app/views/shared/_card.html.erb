@@ -1,0 +1,14 @@
+<% suggestions.each do |suggestion| %>
+  <%= link_to suggestion_path(suggestion) do %>
+    <div class="my-card mb-3">
+    <%= link_to suggestion_path(suggestion), data: {:confirm => 'Are you sure?'}, method: :delete do %>
+      <i class="fa-solid fa-circle-xmark"></i>
+      <% end %>
+      <div class="card-body">
+        <h5><%= suggestion.title %></h5>
+        <hr>
+        <p> <%= suggestion.content %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
