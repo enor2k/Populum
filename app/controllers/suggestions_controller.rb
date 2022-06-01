@@ -1,4 +1,7 @@
 class SuggestionsController < ApplicationController
+  def index
+    @suggestions = Suggestion.all
+
 
   def show
     @suggestion = Suggestion.find(params[:id])
@@ -34,7 +37,6 @@ class SuggestionsController < ApplicationController
   def destroy
     @suggestion = Suggestion.find(params[:id])
     @suggestion.destroy
-
     redirect_to controller: :users_controller, action: :show
   end
 
