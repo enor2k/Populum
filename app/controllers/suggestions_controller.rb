@@ -5,6 +5,10 @@ class SuggestionsController < ApplicationController
 
   def show
     @suggestion = Suggestion.find(params[:id])
+
+    @suggestion_vote = SuggestionVote.new
+    @votes_count = @suggestion.suggestion_votes.pluck(:value).map(&:to_i).sum
+
     @comments = Comment.where(suggestion_id: @suggestion.id)
   end
 
