@@ -52,7 +52,11 @@ class SurveysController < ApplicationController
         :id,
         :answer_type,
         :title,
-        options_attributes: [:_destroy, :id, :title]
+        options_attributes: [
+          :_destroy,
+          :id,
+          :title
+        ]
       ]
     )
   end

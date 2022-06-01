@@ -6,9 +6,9 @@
     <%= form.input :end_date, as: :date, html5: true %>
   </div>
 
-  <div data-controller="nested-form">
-    <template data-nested-form-target='template'>
-      <%= form.fields_for :questions, Question.new, child_index: 'TEMPLATE_RECORD' do |question| %>
+  <div data-controller="nested-form" data-nested-form-index-value='QUESTION_RECORD'>
+    <template data-nested-form-target='template' >
+      <%= form.fields_for :questions, Question.new, child_index: 'QUESTION_RECORD' do |question| %>
         <%= render 'question_fields', form: question %>
       <% end %>
     </template>

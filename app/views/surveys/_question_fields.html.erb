@@ -15,9 +15,10 @@
     </small>
   </div>
 
-  <div data-controller="nested-form" data-dynamic-select-target='choice'>
+  <div data-controller="nested-form" data-dynamic-select-target='choice' data-nested-form-index-value='ANSWER_RECORD'>
     <template data-nested-form-target='template'>
-      <%= form.fields_for :options, Option.new, child_index: 'TEMPLATE_RECORD' do |option| %>
+      <%= form.fields_for :options, Option.new, child_index: 'ANSWER_RECORD' do |option| %>
+
         <%= render 'option_fields', form: option %>
       <% end %>
     </template>
