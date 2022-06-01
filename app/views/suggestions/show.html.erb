@@ -3,7 +3,9 @@
   <%= @suggestion.title %>
 
   <%= @suggestion.content %>
-  <%= @suggestion.votes %>
+
+  <%= render "suggestion_votes/form",votes_count: @votes_count, suggestion: @suggestion, suggestion_vote: @suggestion_vote  %>
+
   <%= @suggestion.address %>
   <%= @suggestion.status %>
   <% @comments.each do |comment| %>
@@ -15,6 +17,8 @@
         </div>
       </div>
   <% end %>
+
+
 
   <%= link_to "Back", suggestions_path,class: "btn btn-outline-primary mb-3" %>
 </div>
