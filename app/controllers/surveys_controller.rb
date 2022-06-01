@@ -35,6 +35,7 @@ class SurveysController < ApplicationController
     redirect_to surveys_path
   end
 
+
   private
 
   def set_survey

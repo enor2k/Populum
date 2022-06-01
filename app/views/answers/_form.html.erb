@@ -1,0 +1,32 @@
+
+
+<ul>
+  <% @survey.questions.each_with_index do |question, index| %>
+    <li>
+      Question n°<%= index + 1 %>: <%= question.title %>
+      <%= simple_form_for [@survey, @question, @answer] do |f| %>
+        <% case question.answer_type %>
+          <% when 'single_choice' %>
+            <% question.options.each do |option| %>
+              <p>
+              <%= radio_button_tag question.id, option.id %>
+              <%= option.title %>
+              </p>
+          <% end %>
+          <% when 'multiple_choice' %>
+            <% question.options.each do |option| %>
+              <p>
+              <%= check_box_tag question.id, option.id %>
+              <%= option.title %>
+              </p>
+            <% end %>
+          <% when 'long_answer' %>
+            <%= text_area_tag question.id %>
+          <% else %>
+          <p style="color:red;">You fucked</p>
+          <% end %>
+          <%= f.submit %>
+        <% end %>
+      </li>
+    <% end %>
+</ul>

@@ -6,10 +6,13 @@ Rails.application.routes.draw do
     resources :suggestion_votes, only: %i[new create]
   end
 
-  resources :surveys
+  resources :surveys do
+    resources :questions do
+      resources :answers, only: %i[new create]
+    end
+  end
 
   resources :suggestions do
     resources :comments, only: %i[create]
-
   end
 end
