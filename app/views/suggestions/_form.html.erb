@@ -1,6 +1,7 @@
 <%= simple_form_for @suggestion do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
+
   <%= f.input :address %>
   <%= f.submit "Nouvelle suggestion", class: "btn btn-outline-primary " %>
 <% end %>
