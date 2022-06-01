@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :surveys do
-    resources :questions do
+    resources :questions, only: [] do
       resources :answers, only: %i[new create]
     end
   end
