@@ -1,0 +1,8 @@
+<% @users.each do |user| %>
+ <div class="card user">
+      <div class="card-body user">
+      <h5><%= user.first_name %></h5>
+      <p> Score: <%= user.score %></p>
+    </div>
+  </div>
+<% end %>
