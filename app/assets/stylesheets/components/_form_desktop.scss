@@ -1,4 +1,5 @@
 .form-desktop{
+  text-align: left;
   background-color: white;
   border-radius: 8px;
   width:800px;
@@ -7,17 +8,25 @@
   margin-bottom: 50px;
   padding: 20px 50px;
 
-    label {
-      text-align: left !important;
-    }
+  h1 {
+    text-align: center;
+  }
 
-    h1 {
-      text-align: center;
-    }
+  a {
+    text-align: center;
+  }
 
-    a {
-      text-align: center;
-    }
+  .box{
+    border:solid;
+    border-radius: 8px;
+    border-color: lightgray;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-
+  input{
+    margin-top: 10px ;
+    margin-bottom: 10px ;
+  }
 }
