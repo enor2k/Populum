@@ -50,9 +50,9 @@ class SurveysController < ApplicationController
       questions_attributes: [
         :_destroy,
         :id,
-        # :question_type,
+        :answer_type,
         :title,
-        answers_attributes: [:_destroy, :id, :answer_fields, :user_id]
+        options_attributes: [:_destroy, :id, :title]
       ]
     )
   end

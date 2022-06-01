@@ -12,13 +12,31 @@
     <% @survey.questions.each_with_index do |question, index| %>
       <li>
         Question n°<%= index + 1 %>: <%= question.title %>
-        <ul>
-          <% question.answers.each_with_index do |answer| %>
-            <li>Réponse n°<%= index + 1 %>: <%= answer.answer_fields %></li>
+        <% case question.answer_type %>
+          <% when 'single_choice' %>
+            <p>single</p>
+            <% question.options.each do |option| %>
+              <p>
+              <%= radio_button_tag question.id, option.id %>
+              <%= option.title %>
+              </p>
           <% end %>
-        </ul>
-      </li>
-    <% end %>
+          <% when 'multiple_choice' %>
+            <p>multiple</p>
+            <% question.options.each do |option| %>
+              <p>
+              <%= check_box_tag question.id, option.id %>
+              <%= option.title %>
+              </p>
+            <% end %>
+          <% when 'long_answer' %>
+            <p>long</p>
+            <%= text_area_tag question.id %>
+          <% else %>
+          <p style="color:red;">You fucked</p>
+          <% end %>
+        </li>
+      <% end %>
   </ul>
 
 </div>

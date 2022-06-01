@@ -1,7 +1,7 @@
 <div class='nested-fields' data-controller='dynamic-select'>
   <div class='form-group'>
-    <%= form.select :question_type,
-        options_for_select(Question.question_type_select, selected: form.object.question_type),
+    <%= form.select :answer_type,
+        options_for_select(Question.answer_type_select, selected: form.object.answer_type),
         {},
         'data-dynamic-select-target': 'select',
         'data-action': 'dynamic-select#selected' %>
@@ -15,19 +15,19 @@
     </small>
   </div>
 
-  <div data-controller="nested-form", data-dynamic-select-target='choice'>
+  <div data-controller="nested-form" data-dynamic-select-target='choice'>
     <template data-nested-form-target='template'>
-      <%= form.fields_for :answers, Answer.new, child_index: 'TEMPLATE_RECORD' do |answer| %>
-        <%= render 'answer_fields', form: answer %>
+      <%= form.fields_for :options, Option.new, child_index: 'TEMPLATE_RECORD' do |option| %>
+        <%= render 'option_fields', form: option %>
       <% end %>
     </template>
 
-    <%= form.fields_for :answers do |answer| %>
-      <%= render 'answer_fields', form: answer %>
+    <%= form.fields_for :options do |option| %>
+      <%= render 'option_fields', form: option %>
     <% end %>
 
     <div data-nested-form-target="add_item">
-      <%= link_to "Add Answer", "#", data: { action: "nested-form#add_association" } %>
+      <%= link_to "Add option", "#", data: { action: "nested-form#add_association" } %>
     </div>
   </div>
 
