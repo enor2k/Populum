@@ -35,6 +35,7 @@ array2 = ["24 Rue des Remparts", "72 Place Fernand Lafargue", "93 Avenue de la L
                             votes: 0)
       comment.suggestion = suggestion
       comment.user = user
+      comment.save
       puts "User #{n} commented suggestion #{suggestion.id}"
     end
   end

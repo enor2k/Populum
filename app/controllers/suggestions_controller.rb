@@ -1,10 +1,11 @@
 class SuggestionsController < ApplicationController
   def index
     @suggestions = Suggestion.all
-
+  end
 
   def show
     @suggestion = Suggestion.find(params[:id])
+    @comments = Comment.where(suggestion_id: @suggestion.id)
   end
 
   def new
