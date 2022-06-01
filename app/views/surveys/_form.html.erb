@@ -1,0 +1,31 @@
+<%= simple_form_for @survey do |form| %>
+
+  <h3>Paramètres du sondage</h3>
+
+  <div>
+    <%= form.input :title %>
+    <%= form.input :overview %>
+  </div>
+
+    <h3>Création des questions</h3>
+
+  <div data-controller="nested-form">
+
+    <template data-nested-form-target="template">
+      <%= form.fields_for :questions, Question.new, child_index: 'TEMPLATE_RECORD' do |form| %>
+        <%= render 'question_fields', form: form %>
+      <% end %>
+    </template>
+
+    <%= form.fields_for :questions do |form| %>
+      <%= render 'question_fields', form: form %>
+    <% end %>
+
+    <div data-nested-form-target="add_question">
+    <%= link_to "Add task", "#", data: { action: "nested-form#add_association"}  %>
+    </div>
+
+  </div>
+
+  <%= form.button :submit %>
+<% end %>
