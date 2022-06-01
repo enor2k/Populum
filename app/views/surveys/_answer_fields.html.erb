@@ -1,0 +1,10 @@
+<div class='nested-fields box' data-controller='dynamic-select'>
+  <div class='form-group'>
+    <%= form.hidden_field :_destroy %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.text_field :answer_fields, placeholder: 'Awnser', class: 'form-control' %>
+    <small>
+      <%= link_to "Remove Answer", "#", data: { action: "click->nested-form#remove_association" } %>
+    </small>
+  </div>
+</div>

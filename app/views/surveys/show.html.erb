@@ -10,7 +10,14 @@
 
   <ul>
     <% @survey.questions.each_with_index do |question, index| %>
-      <li> Question n°<%= index + 1 %>: <%= question.title %> </li>
+      <li>
+        Question n°<%= index + 1 %>: <%= question.title %>
+        <ul>
+          <% question.answers.each_with_index do |answer| %>
+            <li>Réponse n°<%= index + 1 %>: <%= answer.answer_fields %></li>
+          <% end %>
+        </ul>
+      </li>
     <% end %>
   </ul>
 
