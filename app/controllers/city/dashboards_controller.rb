@@ -1,4 +1,2 @@
-module City
-  class DashboardsController < ApplicationController
-  end
+class City::DashboardsController < ApplicationController
 end
