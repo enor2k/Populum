@@ -1,7 +1,7 @@
 <%= simple_form_for @suggestion do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-  <%= f.input :votes %>
+  <%= f.input :votes ,input_html: {value: 0} %>
   <%= f.input :address %>
   <%= f.input :status %>
   <%= f.input :user_id, :label => false , input_html: {value: current_user.id, :class => 'd-none' }%>

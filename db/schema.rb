@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_31_094030) do
+ActiveRecord::Schema.define(version: 2022_06_01_085225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 2022_05_31_094030) do
     t.index ["option_id"], name: "index_answers_on_option_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "comment_votes", force: :cascade do |t|
+    t.string "value"
+    t.bigint "suggestion_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["suggestion_id"], name: "index_comment_votes_on_suggestion_id"
+    t.index ["user_id"], name: "index_comment_votes_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -51,6 +61,16 @@ ActiveRecord::Schema.define(version: 2022_05_31_094030) do
     t.string "answer_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "suggestion_votes", force: :cascade do |t|
+    t.string "value"
+    t.bigint "suggestion_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["suggestion_id"], name: "index_suggestion_votes_on_suggestion_id"
+    t.index ["user_id"], name: "index_suggestion_votes_on_user_id"
   end
 
   create_table "suggestions", force: :cascade do |t|
@@ -97,9 +117,13 @@ ActiveRecord::Schema.define(version: 2022_05_31_094030) do
   add_foreign_key "answers", "options"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "comment_votes", "suggestions"
+  add_foreign_key "comment_votes", "users"
   add_foreign_key "comments", "suggestions"
   add_foreign_key "comments", "users"
   add_foreign_key "options", "questions"
+  add_foreign_key "suggestion_votes", "suggestions"
+  add_foreign_key "suggestion_votes", "users"
   add_foreign_key "suggestions", "users"
   add_foreign_key "surveys", "questions"
   add_foreign_key "surveys", "users"
