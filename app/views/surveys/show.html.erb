@@ -1,0 +1,17 @@
+<div class="container">
+  <%= link_to "Retour", surveys_path, class:"btn btn-primary"  %>
+  <h1> <%= @survey.title %> </h1>
+  <hr>
+  <span class="diplay-5">Date de début: <%= @survey.start_date %> </span> ____ <span class="diplay-5">Date de fin: <%= @survey.end_date %> </span>
+  <br>
+  <br>
+  <p> <%= @survey.overview %> </p>
+  <hr>
+
+  <ul>
+    <% @survey.questions.each_with_index do |question, index| %>
+      <li> Question n°<%= index + 1 %>: <%= question.title %> </li>
+    <% end %>
+  </ul>
+
+</div>

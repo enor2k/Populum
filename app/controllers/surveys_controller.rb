@@ -1,6 +1,11 @@
 class SurveysController < ApplicationController
+  before_action :set_survey, only: %i[edit destroy show update]
+
   def index
     @surveys = Survey.all
+  end
+
+  def show
   end
 
   def new
@@ -9,6 +14,7 @@ class SurveysController < ApplicationController
 
   def create
     @survey = Survey.new(survey_params)
+    @survey.user = current_user
     if @survey.save
       redirect_to surveys_path
     else
@@ -16,9 +22,38 @@ class SurveysController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @survey.update(survey_params)
+    redirect_to survey_path(@survey)
+  end
+
+  def destroy
+    @survey.destroy
+    redirect_to surveys_path
+  end
+
   private
 
+  def set_survey
+    @survey = Survey.find(params[:id])
+  end
+
   def survey_params
-    params.require(:survey).permit(:title, :overview, question_attributes: %i[title answer_type id _destroy])
+    params.require(:survey).permit(
+      :title,
+      :overview,
+      :start_date,
+      :end_date,
+      questions_attributes: [
+        :_destroy,
+        :id,
+        # :question_type,
+        :title
+        # answers_attributes: [:_destroy, :id, :name]
+      ]
+    )
   end
 end
