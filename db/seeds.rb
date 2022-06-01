@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 puts "Creating Users: "
 n = 0
 array = ["72 Rue de la Merci", "82 Rue Clare", "35 Cours Balguerie Stuttenberg", "41 Rue Saint-Sernin", "87 Avenue Jules Guesde"]
