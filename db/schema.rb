@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2022_06_01_085225) do
-=======
-ActiveRecord::Schema.define(version: 2022_05_31_130232) do
->>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,12 +123,9 @@ ActiveRecord::Schema.define(version: 2022_05_31_130232) do
   add_foreign_key "comments", "suggestions"
   add_foreign_key "comments", "users"
   add_foreign_key "options", "questions"
-
+  add_foreign_key "questions", "surveys"
   add_foreign_key "suggestion_votes", "suggestions"
   add_foreign_key "suggestion_votes", "users"
-
-  add_foreign_key "questions", "surveys"
-
   add_foreign_key "suggestions", "users"
   add_foreign_key "surveys", "users"
 end
