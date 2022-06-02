@@ -1,17 +1,15 @@
 class SuggestionsController < ApplicationController
+  before_action :set_suggestion, only: %i[edit destroy show update upvote]
+
   def index
     @suggestions = Suggestion.all
   end
 
   def show
-    @suggestion = Suggestion.find(params[:id])
-
     @suggestion_vote = SuggestionVote.new
     @votes_count = @suggestion.suggestion_votes.pluck(:value).map(&:to_i).sum
-
     @comments = Comment.where(suggestion_id: @suggestion.id)
     @comment_vote = CommentVote.new
-
   end
 
   def new
@@ -30,11 +28,9 @@ class SuggestionsController < ApplicationController
   end
 
   def edit
-    @suggestion = Suggestion.find(params[:id])
   end
 
   def update
-    @suggestion = Suggestion.find(params[:id])
     if @suggestion.update(suggestion_params)
       redirect_to controller: :users_controller, action: :show
     else
@@ -43,9 +39,18 @@ class SuggestionsController < ApplicationController
   end
 
   def destroy
-    @suggestion = Suggestion.find(params[:id])
     @suggestion.destroy
     redirect_to controller: :users_controller, action: :show
+  end
+
+  def upvote
+    raise
+    @suggestion.liked_by current_user
+  end
+
+  def udownvote
+    raise
+    @suggestion.downvote_from current_user
   end
 
   private

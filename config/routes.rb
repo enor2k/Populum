@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
+
   resources :suggestions do
     resources :suggestion_votes, only: %i[new create]
     resources :comments, only: %i[create]
@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   end
 
   get 'surveys/:id/answer', to: 'surveys#respond', as: 'surveys_respond'
+  get 'suggestions/:id/upvote', to: 'suggestions#upvote', as: 'suggestion_upvote'
+  get 'suggestions/:id/downvote', to: 'suggestions#downvote', as: 'suggestion_downvote'
 end
