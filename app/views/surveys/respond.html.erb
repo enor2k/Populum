@@ -1,0 +1,45 @@
+<div class="container">
+  <%= link_to "Retour", surveys_path, class:"btn btn-primary"  %>
+  <h1> Répondre au sondage <%= @survey.title %> </h1>
+  <hr>
+  <span class="diplay-5">Date de début: <%= @survey.start_date %> </span> ____ <span class="diplay-5">Date de fin: <%= @survey.end_date %> </span>
+  <br>
+  <br>
+  <p> <%= @survey.overview %> </p>
+  <hr>
+
+  <ul>
+    <% @survey.questions.each_with_index do |question, index| %>
+      <li>
+        Question n°<%= index + 1 %>: <%= question.title %>
+      </li>
+
+      <% case question.answer_type %>
+      <% when 'single_choice' %>
+        <%= simple_form_for [question, answer = Answer.new] do |f| %>
+          <% question.options.each do |option| %>
+            <%= radio_button_tag 'option_id', option.id %>
+            <%= option.title %>
+          <% end %>
+          <%= f.button :submit %>
+        <% end %>
+      <% when 'multiple_choice' %>
+        <%= simple_form_for [question, answer = Answer.new] do |f| %>
+            <% question.options.each do |option| %>
+              <%= check_box_tag 'option_id', option.id %>
+              <%= option.title %>
+            <% end %>
+            <%= f.button :submit %>
+          <% end %>
+      <% when 'long_answer' %>
+        <%= simple_form_for [question, Answer.new] do |f| %>
+          <%= f.input :answer_fields %>
+          <%= f.button :submit %>
+        <% end %>
+      <% end %>
+
+
+    <% end %>
+  </ul>
+
+</div>
