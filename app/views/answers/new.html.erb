@@ -1,0 +1,12 @@
+<div class="container">
+  <h1> Sondage : <%= @survey.title %> </h1>
+  <hr>
+  <span class="diplay-5">Date de début: <%= @survey.start_date %> </span> ____ <span class="diplay-5">Date de fin: <%= @survey.end_date %> </span>
+  <br>
+  <br>
+  <p> <%= @survey.overview %> </p>
+  <hr>
+
+  <h2>Votre réponse:</h2>
+    <%= render "form", answer: @answer %>
+</div>

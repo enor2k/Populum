@@ -1,31 +1,29 @@
 <%= simple_form_for @survey do |form| %>
-
-  <h3>Paramètres du sondage</h3>
-
-  <div>
+  <div class="field">
     <%= form.input :title %>
     <%= form.input :overview %>
+    <%= form.input :start_date, as: :date, html5: true %>
+    <%= form.input :end_date, as: :date, html5: true %>
   </div>
 
-    <h3>Création des questions</h3>
-
-  <div data-controller="nested-form">
-
-    <template data-nested-form-target="template">
-      <%= form.fields_for :questions, Question.new, child_index: 'TEMPLATE_RECORD' do |form| %>
-        <%= render 'question_fields', form: form %>
+  <div data-controller="nested-form" data-nested-form-index-value='QUESTION_RECORD'>
+    <template data-nested-form-target='template' >
+      <%= form.fields_for :questions, Question.new, child_index: 'QUESTION_RECORD' do |question| %>
+        <%= render 'question_fields', form: question %>
       <% end %>
     </template>
 
-    <%= form.fields_for :questions do |form| %>
-      <%= render 'question_fields', form: form %>
+    <%= form.fields_for :questions do |question| %>
+      <%= render 'question_fields', form: question %>
     <% end %>
 
-    <div data-nested-form-target="add_question">
-    <%= link_to "Add task", "#", data: { action: "nested-form#add_association"}  %>
+    <div class="actions">
+      <div data-nested-form-target="add_item" class='text-center'>
+        <%= link_to "Add Question", "#", data: { action: "nested-form#add_association" }, class:"btn btn-light mb-2" %>
+      </div>
+      <div class="text-center">
+        <%= form.submit class:"btn btn-secondary" %>
+      </div>
     </div>
-
   </div>
-
-  <%= form.button :submit %>
 <% end %>
