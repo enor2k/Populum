@@ -1,17 +1,21 @@
 <% @suggestions.each do |suggestion| %>
   <%= link_to suggestion_path(suggestion) do %>
-  <div class="card-suggestion">
-    <%= image_tag "Enor2.png", class: "avatar" %>
-    <h5><%= suggestion.title %></h5>
-    <div class= "card-suggestion-body">
-      <p class= "text"><%= suggestion.content[0, 50]%>... Voir plus</p>
-        <div class= "votes">
-          <i class="fa-solid fa-angle-up"></i>
-          <p><%= suggestion.votes %></p>
-          <i class="fa-solid fa-angle-down"></i>
-        </div>
-    </div>
 
+  <div class="card-suggestion">
+    <div class="card-suggestion-left">
+      <div class="card-suggestion-top">
+        <%= image_tag "Enor2.png", class: "avatar" %>
+        <h5><%= suggestion.title %></h5>
+      </div>
+      <div class= "card-suggestion-body">
+        <p class= "text"><%= suggestion.content[0, 50]%>... <span class="voir-plus">Voir plus</span></p>
+      </div>
+    </div>
+    <div class= "votes">
+      <i class="fa-solid fa-angle-up"></i>
+      <p><%= suggestion.votes %></p>
+      <i class="fa-solid fa-angle-down"></i>
+    </div>
   </div>
   <% end %>
 <% end %>
