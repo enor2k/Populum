@@ -14,7 +14,7 @@ class SurveysController < ApplicationController
 
   def create
     @survey = Survey.new(survey_params)
-    @survey.user = current_user
+    @survey.user_id = current_user.id
     if @survey.save
       redirect_to surveys_path
     else
