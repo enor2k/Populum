@@ -12,6 +12,7 @@
     <% @survey.questions.each_with_index do |question, index| %>
       <li>
         Question n°<%= index + 1 %>: <%= question.title %>
+      </li>
       <% end %>
   </ul>
 
