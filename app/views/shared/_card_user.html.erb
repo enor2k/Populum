@@ -1,9 +1,17 @@
-<% @users.each do |user| %>
- <div class="card user">
-      <div class="card-body user">
-      <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-      <h5><%= user.first_name %></h5>
-      <p> Score: <%= user.score %></p>
-    </div>
-  </div>
-<% end %>
+<div class="container">
+  <% @users.each do |user| %>
+  <hr>
+    <div class="card-user">
+      <div class="card-body">
+        <div class="card-left-info">
+          <%= image_tag "Enor2.png", class: "avatar"%>
+          <p><%= user.first_name %> <%= user.last_name %></p>
+        </div>
+          <div class="card-right-info">
+            <p><%= user.score %>pts</p>
+            <i class="fa-solid fa-arrow-trend-up arrow"></i>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
