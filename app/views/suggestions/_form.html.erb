@@ -1,9 +1,29 @@
-<%= simple_form_for @suggestion do |f| %>
+<div data-controller="suggests-modal">
+
+  <%= simple_form_for([@suggestion], data: {
+                        suggests_modal_target: "form",
+                        action: "submit->suggests-modal#send"
+                      }) do |f| %>
   <%= f.input :title %>
   <%= f.input :content %>
-
   <%= f.input :address %>
-  <%= f.submit "Nouvelle suggestion", class: "btn btn-outline-primary " %>
-<% end %>
+    <%= f.submit "Nouvelle suggestion", class: "btn btn-outline-primary"%>
+  <% end %>
 
 <br>
+
+  <!-- Modal -->
+  <div class="modal fade" id="SuggestsModal" tabindex="-1" aria-labelledby="OrderModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Félicitation</h5>
+          </div>
+          <div class="modal-body text-center" data-orders-modal-target="items">
+            <h1>Félicitation votre suggestion a bien été prise publier !</h1>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</div>
