@@ -13,7 +13,11 @@
         <div class="card-body">
           <h5><%= comment.user.first_name %></h5>
           <hr>
-          <p> <%= comment.content %></p>
+          <p> <%= comment.content %>
+          <% @comment_find = Comment.find(@suggestion.id)%>
+          <% @votes_com_count = @comment_find.comment_votes.pluck(:value).map(&:to_i).sum%>
+
+          <%= render "comment_votes/form",votes_count: @votes_com_count,suggestion: @suggestion, comment: @comment_find, comment_vote: @comment_vote  %></p>
         </div>
       </div>
   <% end %>
