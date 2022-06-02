@@ -19,6 +19,7 @@ class SuggestionsController < ApplicationController
   def create
     @suggestion = Suggestion.new(suggestion_params)
     @suggestion.user = current_user
+
     if @suggestion.save
       redirect_to @suggestion
     else
