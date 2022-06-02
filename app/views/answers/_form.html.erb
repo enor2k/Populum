@@ -1,0 +1,35 @@
+<ul>
+  <% @survey.questions.each_with_index do |question, index| %>
+    <li>
+      Question n°<%= index + 1 %>: <%= question.title %>
+      <%= simple_form_for [@survey, @question, @answer] do |f| %>
+        <% case question.answer_type %>
+          <% when 'single_choice' %>
+            <% question.options.each do |option| %>
+              <%= f.hidden_field :answer_type, :value => 'single_choice' %>
+              <%= f.hidden_field :option_id, :value => option.id %>
+              <p>
+              <%= radio_button_tag question.id, option.id %>
+              <%= option.title %>
+              </p>
+          <% end %>
+          <% when 'multiple_choice' %>
+            <% question.options.each_with_index do |option, index| %>
+              <%= f.hidden_field :answer_type, :value => 'multiple_choice' %>
+              <%= f.hidden_field "option_#{index}_id".to_sym, :value => option.id %>
+              <p>
+              <%= check_box_tag question.id, option.id %>
+              <%= option.title %>
+              </p>
+            <% end %>
+          <% when 'long_answer' %>
+            <%= f.hidden_field :answer_type, :value => 'long_answer' %>
+            <%= f.input :answer_fields %>
+          <% else %>
+          <p style="color:red;">You fucked</p>
+          <% end %>
+          <%= f.submit %>
+        <% end %>
+      </li>
+    <% end %>
+</ul>

@@ -1,1 +1,22 @@
-<h1>Surveys index</h1>
+<div class="container">
+
+  <h1 class="my-5">Surveys index</h1>
+  <%= link_to "Nouveau sondage", new_survey_path, class:"btn btn-primary mb-3" %>
+
+  <% @surveys.each do |survey| %>
+    <%= link_to survey_path(survey) do %>
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3><%= survey.title %></h3>
+        </div>
+        <div class="card-body">
+          <p>ID: <%= survey.id %> </p>
+          <p class="card-text"><%= survey.overview %></p>
+          <%= link_to "Modifier sondage", edit_survey_path(survey), class:"btn btn-secondary"%>
+          <%= link_to "Supprimer sondage", survey_path(survey), method: :DELETE, class:"btn btn-secondary"%>
+          <%# <%= link_to "Répondre au sondage", new_survey_question_answer_path(survey), class:"btn btn-secondary"%>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

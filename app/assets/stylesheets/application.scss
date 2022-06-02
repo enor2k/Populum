@@ -10,5 +10,19 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 @import "components/card-suggestion";
 @import "components/card-user";
+
+
+
+// POUR QUE LES LIENS NE SOIENT PAS BLEUS
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+  &:hover {
+    color: inherit; /* blue colors for links too */
+    text-decoration: inherit; /* no underline */
+  }
+}
+

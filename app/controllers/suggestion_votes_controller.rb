@@ -9,7 +9,6 @@ class SuggestionVotesController < ApplicationController
 
     @suggestion_vote.user = current_user
     @suggestion_vote.save
-
     redirect_to suggestion_path(@suggestion)
   end
 
