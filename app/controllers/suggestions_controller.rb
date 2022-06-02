@@ -10,6 +10,8 @@ class SuggestionsController < ApplicationController
     @votes_count = @suggestion.suggestion_votes.pluck(:value).map(&:to_i).sum
 
     @comments = Comment.where(suggestion_id: @suggestion.id)
+    @comment_vote = CommentVote.new
+
   end
 
   def new
