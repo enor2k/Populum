@@ -1,6 +1,6 @@
 <% @suggestions.each do |suggestion| %>
-  <div class="card-suggestion">
   <%= link_to suggestion_path(suggestion) do %>
+  <div class="card-suggestion">
     <div class="card-suggestion-left">
       <div class="card-suggestion-top">
         <%= image_tag "Enor2.png", class: "avatar" %>
@@ -11,8 +11,10 @@
       </div>
     </div>
     <div class= "votes">
-      <%= suggestion.get_upvotes.size %>
+      <i class="fa-solid fa-angle-up"></i>
+      <p><%= suggestion.votes %></p>
+      <i class="fa-solid fa-angle-down"></i>
     </div>
-  <% end %>
   </div>
+  <% end %>
 <% end %>
