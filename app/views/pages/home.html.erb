@@ -1,27 +1,9 @@
-<h2 class="mt-3">Top suggestions :</h2>
-  <div class="row">
-    <% @suggestions.each do |suggestion| %>
-      <div class="col-xs-4">
-          <div class="my-card xs-4">
-            <hr>
-            <div class="card-body">
-              <h5><%= suggestion.title %></h5>
-              <p> Score:<%= suggestion.votes %></p>
-            </div>
-          </div>
-      </div>
-    <% end %>
+<div class="container">
+  <h2 class="text-center">Top suggestions :</h2>
+  <%= render "shared/card_suggestion", suggestions: @suggestions%>
   <%= link_to "Voir plus...", suggestions_path %>
-<hr>
-  <h2 class="xs-4"> Top Populumers :</h2>
-    <div class="row justify-content-center xs-4">
-      <% @users.each do |user| %>
-        <div class="my-card xs-4">
-          <div class="card-body">
-          <h5><%= user.first_name %></h5>
-          <p> Score: <%= user.score %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+
+  <hr>
+  <h2 class="text-center"> Top Populumers :</h2>
+  <%= render "shared/card_user", users: @users %>
+</div>

@@ -1,0 +1,14 @@
+.card {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+
+.card-body {
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px;
+}
