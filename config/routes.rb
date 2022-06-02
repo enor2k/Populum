@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get 'surveys/:id/answer', to: 'surveys#respond', as: 'surveys_respond'
   get 'suggestions/:id/upvote', to: 'suggestions#upvote', as: 'suggestion_upvote'
   get 'suggestions/:id/downvote', to: 'suggestions#downvote', as: 'suggestion_downvote'
+  get 'comments/:id/upvote', to: 'comments#upvote', as: 'comment_upvote'
+  get 'comments/:id/downvote', to: 'comments#downvote', as: 'comment_downvote'
 end

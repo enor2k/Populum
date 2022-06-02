@@ -6,10 +6,6 @@ class SuggestionsController < ApplicationController
   end
 
   def show
-    @suggestion_vote = SuggestionVote.new
-    @votes_count = @suggestion.suggestion_votes.pluck(:value).map(&:to_i).sum
-    @comments = Comment.where(suggestion_id: @suggestion.id)
-    @comment_vote = CommentVote.new
   end
 
   def new
@@ -49,7 +45,7 @@ class SuggestionsController < ApplicationController
   end
 
   def downvote
-    @suggestion.downvote_from @user2
+    @suggestion.downvote_from current_user
     redirect_to root_path(anchor: "suggestion-#{@suggestion.id}")
   end
 
