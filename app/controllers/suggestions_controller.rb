@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: %i[edit destroy show update upvote]
+  before_action :set_suggestion, only: %i[edit destroy show update upvote downvote]
 
   def index
     @suggestions = Suggestion.all
@@ -44,18 +44,22 @@ class SuggestionsController < ApplicationController
   end
 
   def upvote
-    raise
     @suggestion.liked_by current_user
+    redirect_to root_path(anchor: "suggestion-#{@suggestion.id}")
   end
 
-  def udownvote
-    raise
-    @suggestion.downvote_from current_user
+  def downvote
+    @suggestion.downvote_from @user2
+    redirect_to root_path(anchor: "suggestion-#{@suggestion.id}")
   end
 
   private
 
   def suggestion_params
     params.require(:suggestion).permit(:title, :content, :address)
+  end
+
+  def set_suggestion
+    @suggestion = Suggestion.find(params[:id])
   end
 end
