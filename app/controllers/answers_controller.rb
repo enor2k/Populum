@@ -8,22 +8,21 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(params_answer)
+    @survey = Survey.find(Question.find(params[:question_id]).survey_id)
     @answer.user = current_user
-    case params[:answer][:answer_type]
-    when "single_choice"
-      @answer.option_id = params[:answer][:option_id]
-    when "multiple_choice"
-      @answer.option_id = params[:answer][:option_1_id]
-    when "long_answer"
-      @answer.answer_fields = params[:answer][:answer_fields]
+    if @answer.save
+      flash[:alert] = 'Réponse enregistrée!'
+      redirect_to surveys_respond_path(@survey)
     end
-    @answer.option_id = params[:answer][:option_id]
-    @answer.save
   end
 
   private
 
   def params_answer
-    params.permit(:question_id, :option_id, :answer_fields)
+    if params[:answer].present?
+      return params.permit(:question_id, :option_id).merge(params.require(:answer).permit(:answer_fields))
+    end
+
+    params.permit(:question_id, :option_id)
   end
 end

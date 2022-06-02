@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: %i[edit destroy show update]
+  before_action :set_survey, only: %i[edit destroy show update respond]
 
   def index
     @surveys = Survey.all
@@ -25,6 +25,9 @@ class SurveysController < ApplicationController
   def edit
   end
 
+  def respond
+  end
+
   def update
     @survey.update(survey_params)
     redirect_to survey_path(@survey)
@@ -34,7 +37,6 @@ class SurveysController < ApplicationController
     @survey.destroy
     redirect_to surveys_path
   end
-
 
   private
 
