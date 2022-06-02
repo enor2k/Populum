@@ -1,14 +1,52 @@
-.card {
-  background-color: #f4ebe3;
-  border-radius: 5px;
-  margin-bottom: 15px;
-}
+.card-suggestion {
 
-.card-body {
-  overflow: hidden;
-  height: 60px;
+  background: $beige;
+  margin-bottom: 15px;
+  border-radius: $border-radius;
+  height: auto;
+  padding: 30px;
+  box-shadow: 1px 1px 4px lightgray;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  padding: 10px;
+
+  h5 {
+    margin: 0px 0px 0px 10px;
+  }
+
+  p {
+    margin: 0px;
+  }
+
+  .votes {
+    color: $lighter-green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0;
+    height: 100%;
+  }
+
+  .card-suggestion-top {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .card-suggestion-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .voir-plus{
+    color: darkgrey;
+    font-style: italic;
+  }
+
+  .card-suggestion-left{
+    flex-grow: 1;
+  }
 }
