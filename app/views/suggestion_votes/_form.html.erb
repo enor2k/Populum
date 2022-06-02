@@ -1,27 +1,44 @@
-<%= votes_count %>
 
-<% @countVal = current_user.suggestion_votes.where( suggestion: suggestion).last%>
-<% if @countVal %>
-  <% if @countVal.value != "+1" %>
-    <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
-      <%= f.input :value, :label => false,  input_html: {value: "+1", :class => 'd-none'} %>
-      <%= f.button :submit,"Upvote" %>
-    <% end %>
-    <%= link_to "Downvote" %>
-  <% else %>
-    <%= link_to "Upvote" %>
-    <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
-      <%= f.input :value, :label => false, input_html: {value: "-1", :class => 'd-none'} %>
-      <%= f.button :submit,"Downvote" %>
-    <% end %>
+
+<% if votes_count == 0 %>
+
+<%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
+    <%= f.input :value, :label => false,  input_html: {value: "+1", :class => 'd-none'} %>
+    <%= f.button :submit,"Upvote" %>
   <% end %>
-<% else %>
+  <%= votes_count %>
   <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
     <%= f.input :value, :label => false, input_html: {value: "-1", :class => 'd-none'} %>
     <%= f.button :submit,"Downvote" %>
   <% end %>
-  <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
-    <%= f.input :value, :label => false,  input_html: {value: "+1", :class => 'd-none'} %>
-    <%= f.button :submit,"Upvote" %>
+
+<% else %>
+  <% @countVal = current_user.suggestion_votes.where( suggestion: suggestion).last%>
+  <% if @countVal %>
+    <% if @countVal.value != "+1" %>
+      <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
+        <%= f.input :value, :label => false,  input_html: {value: "+1", :class => 'd-none'} %>
+        <%= f.button :submit,"Upvote" %>
+      <% end %>
+      <%= votes_count %>
+      <%= link_to "Downvote" %>
+    <% else %>
+      <%= link_to "Upvote" %>
+      <%= votes_count %>
+      <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
+        <%= f.input :value, :label => false, input_html: {value: "-1", :class => 'd-none'} %>
+        <%= f.button :submit,"Downvote" %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
+      <%= f.input :value, :label => false, input_html: {value: "-1", :class => 'd-none'} %>
+      <%= f.button :submit,"Downvote" %>
+    <% end %>
+    <%= votes_count %>
+    <%= simple_form_for([ suggestion, suggestion_vote ], remote: true) do |f| %>
+      <%= f.input :value, :label => false,  input_html: {value: "+1", :class => 'd-none'} %>
+      <%= f.button :submit,"Upvote" %>
+    <% end %>
   <% end %>
 <% end %>
