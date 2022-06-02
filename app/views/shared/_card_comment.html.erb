@@ -1,0 +1,18 @@
+
+ <div class="ok">
+  <% @comments.each do |comment| %>
+    <hr>
+          <%= image_tag "Enor2.png", class: "avatar"%>
+      <div class="card comment">
+        <div class="card body">
+            <div class="card-text">
+              <p><%= comment.user.first_name %> <%= comment.user.last_name %></p>
+              <p> <%= comment.content %>
+            </div>
+          <% @comment_find = Comment.find(@suggestion.id)%>
+          <% @votes_com_count = @comment_find.comment_votes.pluck(:value).map(&:to_i).sum %>
+          <%= render "comment_votes/form",votes_count: @votes_com_count,suggestion: @suggestion, comment: @comment_find, comment_vote: @comment_vote  %></p>
+        </div>
+      </div>
+    <% end %>
+    </div>

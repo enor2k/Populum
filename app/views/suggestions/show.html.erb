@@ -8,21 +8,8 @@
 
   <%= @suggestion.address %>
   <%= @suggestion.status %>
-  <% @comments.each do |comment| %>
-      <div class="card-suggestion mb-3">
-        <div class="card-body">
-          <h5><%= comment.user.first_name %></h5>
-          <hr>
-          <p> <%= comment.content %>
-          <% @comment_find = Comment.find(@suggestion.id)%>
-          <% @votes_com_count = @comment_find.comment_votes.pluck(:value).map(&:to_i).sum%>
 
-          <%= render "comment_votes/form",votes_count: @votes_com_count,suggestion: @suggestion, comment: @comment_find, comment_vote: @comment_vote  %></p>
-        </div>
-      </div>
-  <% end %>
-
-
+  <%= render "shared/card_comment", comment: @comments %>
 
   <%= link_to "Back", suggestions_path,class: "btn btn-outline-primary mb-3" %>
 </div>
