@@ -1,14 +1,42 @@
-.card {
-  border-left: 0px;
-  border-right: 0px;
-}
+.card-user {
+  margin: 0px;
+  padding: 5px;
 
+  p {
+    padding: 0px;
+    margin: 0px;
+  }
 
-.card-body {
-  overflow: hidden;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-  padding: 10px;
+  .card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .card-left-info {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .card-right-info {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .card-right-info p {
+    margin-right: 20px;
+  }
+
+  .card-left-info p {
+    margin-left: 20px;
+  }
+
+  .arrow {
+    color: green;
+  }
+
 }
