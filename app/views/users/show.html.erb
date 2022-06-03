@@ -1,10 +1,8 @@
+<%= render "shared/top_header", titre: "Bonjour, #{@user.first_name}" %>
+
+
 <div class="container">
 
-  <div class = "user-name">
-
-    <%= image_tag "Enor2.png", class: "avatar" %>
-    <h1>Bonjour, <%= @user.first_name%></h1>
-  </div>
   <p class= "user-score">Vos points : <%= @user.score %></p>
 
   <h2 class="text-center">Vos suggestions :</h2>
