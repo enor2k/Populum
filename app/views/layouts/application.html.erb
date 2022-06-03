@@ -14,9 +14,11 @@
   </head>
 
   <body>
-    <%= render 'shared/flashes' %>
-
-    <%= yield %>
+    <div class="full-screen">
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+    </div>
+    <%= render "shared/btm_navbar" %>
 
   </body>
 </html>

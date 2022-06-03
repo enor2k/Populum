@@ -1,0 +1,28 @@
+<div class="navbar btm-navbar">
+
+  <%= link_to suggestions_path do %>
+    <div class="navbar-btn">
+      <i class="fa-solid fa-bars-staggered"></i>
+      <p>Suggestions</p>
+    </div>
+  <% end %>
+
+  <%= link_to root_path do %>
+  <div class="navbar-btn">
+    <i class="fa-solid fa-house"></i>
+    <p>Suggestions</p>
+    </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= link_to user_path(current_user) do %>
+      <div class="navbar-btn">
+        <i class="fa-solid fa-user"></i>
+        <p>Suggestions</p>
+      </div>
+    <% end %>
+  <% end %>
+
+
+
+</div>
