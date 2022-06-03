@@ -1,3 +1,17 @@
+<style>
+  .modal:before {
+    content: '';
+    display: inline-block;
+    height:30%;
+    vertical-align: middle;
+  }
+
+  .modal-dialog {
+    display: inline-block;
+    vertical-align: middle;
+  }
+</style>
+
 <div data-controller="suggests-modal">
 
   <%= simple_form_for([@suggestion], data: {
@@ -16,11 +30,10 @@
   <div class="modal fade" id="SuggestsModal" tabindex="-1" aria-labelledby="OrderModalLabel">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Félicitation</h5>
-          </div>
           <div class="modal-body text-center" data-orders-modal-target="items">
-            <h1>Félicitation votre suggestion a bien été prise publier !</h1>
+            <h1>Votre suggestion a bien été prise en compte !</h1>
+
+            <button type="button" class="btn btn-lg" style="background-color: #038C7F;color:white;border-radius: 20px;" id="submitSuggest" data-bs-dismiss="modal">Ok</button>
           </div>
         </div>
       </div>
