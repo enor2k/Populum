@@ -1,0 +1,20 @@
+<div class="card-comment mb-3">
+  <div class="card-comment-left">
+    <div class="card-comment-top">
+      <%= image_tag "Enor2.png", class: "avatar" %>
+      <h5><%= comment.user.first_name %> <%= comment.user.last_name %></h5>
+    </div>
+    <div class="card-comment-body">
+      <p> <%= comment.content %>
+    </div>
+  </div>
+    <div class= "votes">
+      <%= link_to comment_upvote_path(comment) do %>
+      <i class="fa-solid fa-angle-up"></i>
+    <% end %>
+      <p><%= comment.weighted_score %></p>
+      <%= link_to comment_downvote_path(comment) do %>
+      <i class="fa-solid fa-angle-down"></i>
+    <% end %>
+  </div>
+</div>
