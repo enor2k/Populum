@@ -1,0 +1,83 @@
+.card-suggestion-show {
+
+  background: $beige;
+  margin-bottom: 15px;
+  border-radius: $border-radius;
+  height: auto;
+  padding: 30px 0px 30px 0px;
+  box-shadow: 1px 1px 4px lightgray;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+
+  h5 {
+    margin: 0px;
+  }
+
+  p {
+    margin: 0px;
+    text-align: justify;
+  }
+
+  .votes {
+    color: $lighter-green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0;
+    height: 100%;
+    padding: 0px 30px 0px 20px;
+    size: 18px;
+  }
+
+  .card-suggestion-top {
+    display: flex;
+    justify-content: left;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    width: 100%;
+    padding-left: 30px;
+  }
+
+  .card-suggestion-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 10px;
+  }
+
+  .address {
+    font-size: 12px;
+    font-style: italic;
+    margin: 5px 0px 10px 0px;
+  }
+
+  .status {
+    font-size: 12px;
+    color: white;
+    padding: 4px 15px 4px 15px;
+    background-color: $lighter-green;
+    border-radius: 20px;
+    margin: 20px 0px 0px 30px;
+    width:fit-content;
+  }
+
+  .card-suggestion-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+  }
+
+  .voir-plus{
+    color: darkgrey;
+    font-style: italic;
+  }
+
+  .card-suggestion-left{
+    margin-right: 10px;
+  }
+}
