@@ -1,5 +1,5 @@
 class SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: %i[edit destroy show update upvote downvote]
+  before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
 
   def index
     @suggestions = Suggestion.all
@@ -28,7 +28,7 @@ class SuggestionsController < ApplicationController
 
   def update
     if @suggestion.update(suggestion_params)
-      redirect_to controller: :users_controller, action: :show
+      redirect_to user_path(current_user)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class SuggestionsController < ApplicationController
 
   def destroy
     @suggestion.destroy
-    redirect_to controller: :users_controller, action: :show
+    redirect_to user_path(current_user)
   end
 
   def upvote
