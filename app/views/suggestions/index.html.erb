@@ -1,9 +1,5 @@
-<h1>Suggestions</h1>
-
-<ul>
-  <% @suggestions.each do |suggestion| %>
-  <li><%= suggestion.title %> </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Back', url_for(:back), class: "btn btn-outline-primary mb-3" %>
+<div class="container">
+  <h1>Suggestions</h1>
+  <%= render "shared/card_suggestion", suggestions: @suggestions%>
+  <%= link_to 'Back', url_for(:back), class: "btn btn-outline-primary mb-3" %>
+</div>
