@@ -1,18 +1,20 @@
-
- <div class="ok">
-  <% @comments.each do |comment| %>
-    <hr>
-          <%= image_tag "Enor2.png", class: "avatar"%>
-      <div class="card comment">
-        <div class="card body">
-            <div class="card-text">
-              <p><%= comment.user.first_name %> <%= comment.user.last_name %></p>
-              <p> <%= comment.content %>
-            </div>
-          <% @comment_find = Comment.find(@suggestion.id)%>
-          <% @votes_com_count = @comment_find.comment_votes.pluck(:value).map(&:to_i).sum %>
-          <%= render "comment_votes/form",votes_count: @votes_com_count,suggestion: @suggestion, comment: @comment_find, comment_vote: @comment_vote  %></p>
-        </div>
-      </div>
-    <% end %>
+<div class="card-comment mb-3">
+  <div class="card-comment-left">
+    <div class="card-comment-top">
+      <%= image_tag "Enor2.png", class: "avatar" %>
+      <h5><%= comment.user.first_name %> <%= comment.user.last_name %></h5>
     </div>
+    <div class="card-comment-body">
+      <p> <%= comment.content %>
+    </div>
+  </div>
+    <div class= "votes">
+      <%= link_to comment_upvote_path(comment) do %>
+      <i class="fa-solid fa-angle-up"></i>
+    <% end %>
+      <p><%= comment.weighted_score %></p>
+      <%= link_to comment_downvote_path(comment) do %>
+      <i class="fa-solid fa-angle-down"></i>
+    <% end %>
+  </div>
+</div>
