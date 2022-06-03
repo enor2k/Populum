@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+.flex-container{
+
+  display: flex ;
+  overflow: auto;
+  white-space: nowrap;
+}
+.card-suggestion {
+  margin: 10px;
+}
+
+span{
+  margin-right: 10px;
+}
