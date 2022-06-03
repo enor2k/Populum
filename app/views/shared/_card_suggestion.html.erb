@@ -1,5 +1,6 @@
 <% @suggestions.each do |suggestion| %>
   <%= link_to suggestion_path(suggestion) do %>
+
   <div class="card-suggestion" id= <%="suggestion-#{suggestion.id}"%> >
     <div class="card-suggestion-left">
       <div class="card-suggestion-top">
@@ -18,7 +19,8 @@
       <%= link_to suggestion_downvote_path(suggestion) do %>
         <i class="fa-solid fa-angle-down"></i>
       <% end %>
-    </div>
+
+  </div>
   </div>
   <% end %>
 <% end %>
