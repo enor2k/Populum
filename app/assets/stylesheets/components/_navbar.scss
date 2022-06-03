@@ -1,12 +1,22 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: $blue;
-}
+.btm-navbar{
+  position: sticky;
+  bottom: 0px;
+  background-color: $blue; //blue is the new green
+  height:50px;
+  padding: 5px 60px 5px 60px;
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+  .navbar-btn{
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-btn p{
+    margin-top: 5px;
+    font-size: 10px;
+    margin-bottom: 0px;
+  }
 }
