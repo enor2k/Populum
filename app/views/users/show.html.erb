@@ -1,6 +1,7 @@
 <div class="container">
 
   <div class = "user-name">
+
     <%= image_tag "Enor2.png", class: "avatar" %>
     <h1>Bonjour, <%= @user.first_name%></h1>
   </div>
@@ -8,4 +9,6 @@
 
   <h2 class="text-center">Vos suggestions :</h2>
   <%= render "shared/card_suggestion", suggestions: @suggestions%>
+
+    <%= link_to "Déconexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
 </div>

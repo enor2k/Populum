@@ -1,11 +1,16 @@
+<%= render "shared/top_header", titre: 'Accueil'%>
+
+<% unless user_signed_in? %>
+  <%= link_to "Se connecter", new_user_session_path, class:"btn btn-primary m-4" %>
+<% end %>
+
 <div class="container">
-  <h2 class="text-center">Top suggestions :</h2>
-  <div class="flex-container" >
-      <%= render "shared/card_suggestion", suggestions: @suggestions%>
-  </div>
+
+  <h2 class="ml-4">Top suggestions :</h2>
+  <%= render "shared/card_suggestion", suggestions: @suggestions%>
+
   <%= link_to "Voir plus...", suggestions_path %>
-<hr>
-  <h2 class="text-center"> Top Populumers :</h2>
-  <%= render "shared/card_user", users: @users %>
   <hr>
+  <h2 class="ml-4"> Top Populumers :</h2>
+  <%= render "shared/card_user", users: @users %>
 </div>
