@@ -16,5 +16,9 @@ export default class extends Controller {
     $('#submitSuggest').click(function() {
       $('#new_suggestion').submit();
     });
+
+    $('#submitSuggest').click(function() {
+      $('.edit_suggestion').submit();
+    });
   }
 }
