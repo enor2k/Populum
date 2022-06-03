@@ -12,6 +12,13 @@ export default class extends Controller {
 
     event.preventDefault()
     $('#SuggestsModal').modal('show');
-    $('#new_suggestion').delay(5000).submit();
+
+    $('#submitSuggest').click(function() {
+      $('#new_suggestion').submit();
+    });
+
+    $('#submitSuggest').click(function() {
+      $('.edit_suggestion').submit();
+    });
   }
 }
