@@ -1,0 +1,46 @@
+.card-comment {
+
+  margin-bottom: 15px;
+  border-radius: $border-radius;
+  height: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h5 {
+    margin: 0px 0px 0px 10px;
+  }
+
+  p {
+    margin: 0px;
+  }
+
+  .votes {
+    color: $lighter-green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 0;
+    height: 100%;
+  }
+
+  .card-comment-top {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .card-comment-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+  .card-comment-left{
+    flex-grow: 1;
+  }
+}

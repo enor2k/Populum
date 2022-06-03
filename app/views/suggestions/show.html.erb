@@ -23,28 +23,11 @@
     </div>
   </div>
 
-  <h3>Comments:</h3>
+  <h3>Commentaires:</h3>
 
   <% @suggestion.comments.each do |comment| %>
-    <div class="card-suggestion mb-3">
-      <div class="card-body">
-        <h5><%= comment.user.first_name %></h5>
-        <hr>
-        <p> <%= comment.content %>
-      </div>
-      <div class= "votes">
-      <%= link_to comment_upvote_path(comment) do %>
-        <i class="fa-solid fa-angle-up"></i>
-      <% end %>
-      <p><%= comment.weighted_score %></p>
-      <%= link_to comment_downvote_path(comment) do %>
-        <i class="fa-solid fa-angle-down"></i>
-      <% end %>
-    </div>
-    </div>
+    <%= render "shared/card_comment", comment: comment %>
   <% end %>
-
-
 
   <%= link_to "Back", suggestions_path,class: "btn btn-outline-primary mb-3" %>
 </div>
