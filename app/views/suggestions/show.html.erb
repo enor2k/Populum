@@ -24,7 +24,6 @@
     </div>
     <div class="status">On y travaille !</div>
     <div class="boutons">
-      <%= link_to "Nouveaau commentaire",  %>
       <% if user_signed_in? && @suggestion.user == current_user %>
         <%= link_to edit_suggestion_path(@suggestion) do %>
           <i class="fa-solid fa-pen-to-square"></i>
