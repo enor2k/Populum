@@ -1,32 +1,34 @@
 <div class="container">
 
-  <div class="card-suggestion">
-    <div class="card-suggestion-left">
-      <div class="card-suggestion-top">
-        <%= image_tag "Enor2.png", class: "avatar" %>
-        <%= @suggestion.address %>
-        <%= @suggestion.status %>
+  <div class="card-suggestion-show">
+    <div class="card-suggestion-top">
+      <%= image_tag "Enor2.png", class: "avatar" %>
+      <div class="card-suggestion-title">
         <h5><%= @suggestion.title %></h5>
-      </div>
-      <div class= "card-suggestion-body">
-        <p class= "text"><%= @suggestion.content%></p>
+          <div class="address"><%= @suggestion.address %></div>
       </div>
     </div>
-    <div class= "votes">
-      <%= link_to suggestion_upvote_path(@suggestion) do %>
-        <i class="fa-solid fa-angle-up"></i>
-      <% end %>
-      <p><%= @suggestion.weighted_score %></p>
-      <%= link_to suggestion_downvote_path(@suggestion) do %>
-        <i class="fa-solid fa-angle-down"></i>
-      <% end %>
+    <div class= "card-suggestion-body">
+      <div class="card-suggestion-left">
+          <p class= "text"><%= @suggestion.content%></p>
+      </div>
+      <div class= "votes">
+        <%= link_to suggestion_upvote_path(@suggestion) do %>
+          <i class="fa-solid fa-angle-up"></i>
+        <% end %>
+        <p><%= @suggestion.weighted_score %></p>
+        <%= link_to suggestion_downvote_path(@suggestion) do %>
+          <i class="fa-solid fa-angle-down"></i>
+        <% end %>
+      </div>
     </div>
+    <div class="status">On y travaille !</div>
   </div>
 
   <h3>Comments:</h3>
 
   <% @suggestion.comments.each do |comment| %>
-    <div class="card-suggestion mb-3">
+    <div class="card-comment mb-3">
       <div class="card-body">
         <h5><%= comment.user.first_name %></h5>
         <hr>
@@ -46,5 +48,4 @@
 
 
 
-  <%= link_to "Back", suggestions_path,class: "btn btn-outline-primary mb-3" %>
-</div>
+<%= link_to 'Retour', url_for(:back), class: "btn btn-outline-primary mb-3" %></div>
