@@ -1,9 +1,12 @@
+
 <div class="container">
-  <h1>Bonjour, <%= @user.first_name %></h1>
-  <p>Vos points: <%= @user.score %></p>
+  <%= link_to 'Back', url_for(:back), class: "btn btn-outline-primary mb-3" %>
+  <div class = "user-name">
+    <%= image_tag "Enor2.png", class: "avatar" %>
+    <h1>Bonjour, <%= @user.first_name%></h1>
+  </div>
+  <p class= "user-score">Vos points : <%= @user.score %></p>
 
-
-
-      <h3>Vos suggestions</h3>
-      <%= render "shared/card_suggestion", locals: {suggestions: @suggestions}%>
+  <h2 class="text-center">Vos suggestions :</h2>
+  <%= render "shared/card_suggestion", suggestions: @suggestions%>
 </div>
