@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :suggestions do
     resources :suggestion_votes, only: %i[new create]
     resources :comments, only: %i[create]
-    resources :comment_votes, only: [:new, :create]
+    resources :comment_votes, only: %i[new create]
   end
 
   resources :surveys do
