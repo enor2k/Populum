@@ -3,4 +3,9 @@
 <div class="container">
   <%= render "shared/card_suggestion", suggestions: @suggestions%>
   <%= link_to 'Back', url_for(:back), class: "btn btn-outline-primary mb-3" %>
+
+
+    <div class="test">
+      <%= link_to image_tag("add_btn"), new_suggestion_path, id:"add-btn" %>
+    </div>
 </div>
