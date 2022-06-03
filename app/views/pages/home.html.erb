@@ -6,11 +6,11 @@
 
 <div class="container">
 
-  <h2 class="ml-4">Top suggestions :</h2>
-  <%= render "shared/card_suggestion", suggestions: @suggestions%>
-
-  <%= link_to "Voir plus...", suggestions_path %>
-  <hr>
-  <h2 class="ml-4"> Top Populumers :</h2>
-  <%= render "shared/card_user", users: @users %>
-</div>
+  <% if Survey.count > 0 %>
+    <div class="notif">
+      <h2 class="ml-4">Sondage en cours!</h2>
+      <% Survey.all.each do |sondage| %>
+      <%= link_to "Répondre", surveys_respond_path(sondage), class:"btn btn-secondary m-4" %>
+      <% end %>
+    </div>
+  <% end %>
