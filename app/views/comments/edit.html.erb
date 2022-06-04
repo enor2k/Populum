@@ -1,0 +1,5 @@
+<%= render "shared/top_header", titre: 'Modification'%>
+  <%= simple_form_for [@suggestion, @comment] do |f| %>
+    <%= f.input :content, as: :text %>
+    <%= f.button :submit, class:'btn btn-primary mb-3' %>
+  <% end %>

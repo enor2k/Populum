@@ -1,5 +1,4 @@
 .card-comment {
-
   margin-bottom: 15px;
   border-radius: $border-radius;
   height: auto;
@@ -33,10 +32,8 @@
     margin-bottom: 20px;
   }
 
-  .card-comment-body{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .card-comment-btns{
+    color: $lighter-green;
   }
 
 

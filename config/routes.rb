@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users, only: %i[show]
+  resources :comments, only: %i[ destroy ]
 
   resources :suggestions do
     resources :suggestion_votes, only: %i[new create]
-    resources :comments, only: %i[create]
+    resources :comments, only: %i[create edit update]
     resources :comment_votes, only: %i[new create]
   end
 
