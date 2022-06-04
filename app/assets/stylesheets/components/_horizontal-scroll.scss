@@ -1,0 +1,9 @@
+.horizontal-scroll {
+  display: flex;
+  overflow-x:scroll;
+
+  .card-suggestion {
+    min-width: 80%;
+    margin-left: 0px;
+  }
+}

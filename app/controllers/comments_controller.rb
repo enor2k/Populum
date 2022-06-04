@@ -1,18 +1,33 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: %i[upvote downvote]
+  before_action :set_comment, only: %i[upvote downvote destroy edit update]
 
   def create
     @comment = Comment.new(comment_params)
-    # we need `suggestion_id` to associate comment with corresponding suggestion
     @suggestion = Suggestion.find(params[:suggestion_id])
     @comment.suggestion = @suggestion
-    @comment.save
-    redirect_to suggestion_path(@suggestion)
+    @comment.user = current_user
+    if @comment.save
+      redirect_to suggestion_path(@suggestion)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @suggestion = Suggestion.find(params[:suggestion_id])
+  end
+
+  def update
+    if @comment.update(comment_params)
+      redirect_to suggestion_path(Suggestion.find(params[:suggestion_id]))
+    else
+      render :edit
+    end
   end
 
   def destroy
     @comment.destroy
-    redirect_to controller: :users_controller, action: :show
+    redirect_to suggestion_path(Suggestion.find(@comment.suggestion_id))
   end
 
   def upvote

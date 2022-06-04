@@ -35,12 +35,22 @@
     </div>
   </div>
 
-  <h3>Commentaires:</h3>
+  <% if @suggestion.comments.size > 0 %>
+    <h3>Commentaires:</h3>
 
-  <% @suggestion.comments.each do |comment| %>
+    <% @suggestion.comments.each do |comment| %>
 
-    <%= render "shared/card_comment", comment: comment %>
+      <%= render "shared/card_comment", comment: comment %>
+    <% end %>
   <% end %>
 
   <%= link_to 'Retour', url_for(:back), class: "btn btn-outline-primary mb-3" %>
+
+  <h1> <%= @suggestion.id %> </h1>
+
+  <%= simple_form_for([ @suggestion, @comment ]) do |f| %>
+    <%= f.input :content, as: :text %>
+    <%= f.button :submit, class:'btn btn-primary mb-3' %>
+  <% end %>
+
 </div>
