@@ -1,27 +1,11 @@
-<style>
-  .modal:before {
-    content: '';
-    display: inline-block;
-    height:30%;
-    vertical-align: middle;
-  }
-
-  .modal-dialog {
-    display: inline-block;
-    vertical-align: middle;
-  }
-</style>
-
 <div data-controller="suggests-modal">
 
-  <%= simple_form_for([@suggestion], data: {
-                        suggests_modal_target: "form",
-                        action: "submit->suggests-modal#send"
-                      }) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :content %>
-  <%= f.input :address %>
-    <%= f.submit "Valider", class: "btn btn-outline-primary"%>
+  <%= simple_form_for @suggestion, html: {class:"form-mobile"}, data: { suggests_modal_target: "form", action: "submit->suggests-modal#send" } do |f| %>
+    <%= f.input :title, label:"Titre" %>
+    <hr>
+    <%= f.input :content, label:"Contenu" %>
+    <%= f.input :address, label:"Addresse" %>
+    <%= f.submit "Valider", class: "btn btn-primary w-100 mt-4"%>
   <% end %>
 
 <br>

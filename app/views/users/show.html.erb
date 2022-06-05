@@ -4,9 +4,11 @@
 <div class="container">
 
   <p class= "user-score">Vos points : <%= @user.score %></p>
-
   <h2 class="text-center">Vos suggestions :</h2>
-  <%= render "shared/card_suggestion", suggestions: @suggestions%>
 
-    <%= link_to "Déconexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+  <%= render "shared/card_suggestion", suggestions: @suggestions%>
+  <%= link_to "Déconexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
+
 </div>
+
+<%= render "shared/btm_navbar" %>
