@@ -1,9 +1,9 @@
-<%= simple_form_for @survey do |form| %>
+<%= simple_form_for @survey, html:{'data-controller':'flatpickr'} do |form| %>
   <div class="field">
     <%= form.input :title %>
     <%= form.input :overview %>
-    <%= form.input :start_date, as: :date, html5: true %>
-    <%= form.input :end_date, as: :date, html5: true %>
+    <%= form.input :start_date, as: :date, html5: true, input_html:{ data: {'flatpickr-target':"startdate", 'action':"click->flatpickr#startdatepick"} } %>
+    <%= form.input :end_date, as: :date, html5: true, input_html:{ data: {'flatpickr-target':"enddate", 'action':"click->flatpickr#enddatepick"} } %>
   </div>
 
   <div data-controller="nested-form" data-nested-form-index-value='QUESTION_RECORD'>

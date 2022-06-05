@@ -13,8 +13,10 @@
           <p>ID: <%= survey.id %> </p>
           <p class="card-text"><%= survey.overview %></p>
           <%= link_to "Modifier sondage", edit_survey_path(survey), class:"btn btn-secondary"%>
-          <%= link_to "Supprimer sondage", survey_path(survey), method: :DELETE, class:"btn btn-secondary"%>
-          <%= link_to "Répondre au sondage", surveys_respond_path(survey), class:"btn btn-secondary"%>
+          <%= link_to "Visualiser résultats", survey_display_path(survey), class:"btn btn-secondary"%>
+          <% if survey.active? %>
+            <%= link_to "Archiver sondage", survey_archive_path(survey), method: :PATCH, class:"btn btn-secondary"%>
+          <% end %>
         </div>
       </div>
     <% end %>
