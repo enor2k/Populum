@@ -3,6 +3,8 @@
   <div class="form-div">
     <h2 class="pt-4"> Modifier votre suggestion</h2>
     <%= render "form", suggestion: @suggestion %>
-    <%= link_to "Back", suggestions_path %>
+    <%= link_to suggestions_path do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
   </div>
 </div>
