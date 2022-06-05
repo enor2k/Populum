@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   enddatepick() {
-    let calendar = flatpickr(this.enddateTarget, {minDate: "today"});
+    let calendar = flatpickr(this.enddateTarget, {defaultDate: new Date().fp_incr(7)});
     calendar.toggle()
   }
 
