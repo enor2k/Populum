@@ -11,14 +11,15 @@ Rails.application.routes.draw do
     resources :comment_votes, only: %i[new create]
   end
 
-  resources :surveys do
+  resources :surveys, except: [:destroy] do
     resources :questions, only: [:create]
   end
   resources :questions, except: [:create] do
     resources :answers, only: [:create]
   end
 
-  get 'surveys/:id/answer', to: 'surveys#respond', as: 'surveys_respond'
+  get 'surveys/:id/answer', to: 'surveys#respond', as: 'survey_respond'
+  patch 'surveys/:id/archive', to: 'surveys#archive', as: 'survey_archive'
   get 'suggestions/:id/upvote', to: 'suggestions#upvote', as: 'suggestion_upvote'
   get 'suggestions/:id/downvote', to: 'suggestions#downvote', as: 'suggestion_downvote'
   get 'comments/:id/upvote', to: 'comments#upvote', as: 'comment_upvote'

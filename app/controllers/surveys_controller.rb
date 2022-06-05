@@ -1,8 +1,8 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: %i[edit destroy show update respond]
+  before_action :set_survey, only: %i[edit show update respond archive]
 
   def index
-    @surveys = Survey.all
+    @surveys = Survey.where(:active? == true)
   end
 
   def show
@@ -33,9 +33,8 @@ class SurveysController < ApplicationController
     redirect_to survey_path(@survey)
   end
 
-  def destroy
-    @survey.destroy
-    redirect_to surveys_path
+  def archive
+    @survey.update(active?: false)
   end
 
   private
