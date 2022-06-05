@@ -4,7 +4,7 @@
     <div class="card-user">
       <div class="card-body">
         <div class="card-left-info">
-          <%= image_tag "Enor2.png", class: "avatar"%>
+          <%= user.avatar.attached? ? (cl_image_tag user.avatar.key, class: 'avatar') : (image_tag "avatar.png", class: 'avatar') %>
           <p><%= user.first_name %> <%= user.last_name %></p>
         </div>
           <div class="card-right-info">

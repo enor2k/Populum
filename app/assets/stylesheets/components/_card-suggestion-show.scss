@@ -86,4 +86,16 @@
     display: flex;
     justify-content: space-evenly;
   }
+
+  .card-suggestion-photo {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    .photo {
+      max-width: 50%;
+      height: auto;
+    }
+  }
 }
