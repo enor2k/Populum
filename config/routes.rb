@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
 
   get 'surveys/:id/answer', to: 'surveys#respond', as: 'survey_respond'
+  get 'surveys/:id/display', to: 'surveys#display', as: 'survey_display'
   patch 'surveys/:id/archive', to: 'surveys#archive', as: 'survey_archive'
   get 'suggestions/:id/upvote', to: 'suggestions#upvote', as: 'suggestion_upvote'
   get 'suggestions/:id/downvote', to: 'suggestions#downvote', as: 'suggestion_downvote'
