@@ -1,0 +1,11 @@
+.modal:before {
+  content: '';
+  display: inline-block;
+  height:30%;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  vertical-align: middle;
+}

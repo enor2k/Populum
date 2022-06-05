@@ -5,7 +5,6 @@
 <% end %>
 
 <div class="container">
-
     <% if Survey.count > 0 %>
       <div class="notif">
         <h2 class="ml-4">Sondage en cours!</h2>
@@ -23,3 +22,5 @@
   <h2 class=“ml-4”> Top Populumers :</h2>
   <%= render "shared/card_user", users: @users %>
 </div>
+
+<%= render "shared/btm_navbar" %>
