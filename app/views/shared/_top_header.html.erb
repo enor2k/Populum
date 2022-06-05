@@ -1,4 +1,8 @@
 <div class="top-header">
-  <%= image_tag "Enor2.png", class: "avatar" %>
-    <h1> <%= titre %> </h1>
+  <% if user_signed_in? && current_user.avatar.attached? %>
+    <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
+  <% elsif user_signed_in?%>
+    <%= image_tag "avatar.png", class: 'avatar' %>
+  <% end %>
+  <h1> <%= titre %> </h1>
 </div>

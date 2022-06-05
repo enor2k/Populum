@@ -2,7 +2,7 @@
 
   <div class="card-suggestion-show">
     <div class="card-suggestion-top">
-      <%= image_tag "Enor2.png", class: "avatar" %>
+      <%= @suggestion.user.avatar.attached? ? (cl_image_tag @suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')  %>
       <div class="card-suggestion-title">
         <h5><%= @suggestion.title %></h5>
           <div class="address"><%= @suggestion.address %></div>
@@ -32,6 +32,9 @@
           <i class="fa-solid fa-trash-can"></i>
         <% end %>
       <% end %>
+    </div>
+    <div class="card-suggestion-photo">
+    <%= @suggestion.photo.attached? ? (cl_image_tag @suggestion.photo.key, class: 'photo '): () %>
     </div>
   </div>
 
