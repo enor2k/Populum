@@ -42,3 +42,9 @@ body {
 .full-screen{
   min-height: 100vh;
 }
+
+.sticky-bottom{
+  position: sticky;
+  top: 0px;
+  background-color: red;
+}

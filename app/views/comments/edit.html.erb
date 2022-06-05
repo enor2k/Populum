@@ -1,5 +1,8 @@
 <%= render "shared/top_header", titre: 'Modification'%>
-  <%= simple_form_for [@suggestion, @comment] do |f| %>
-    <%= f.input :content, as: :text %>
-    <%= f.button :submit, class:'btn btn-primary mb-3' %>
+
+<div class="form-div mt-5 py-5">
+  <%= simple_form_for [@suggestion, @comment], html: {class:"form-mobile"} do |f| %>
+    <%= f.input :content, as: :text, label:"Votre commentaire" %>
+    <%= f.submit "Valider", class:'btn btn-primary mt-5 w-100' %>
   <% end %>
+</div>
