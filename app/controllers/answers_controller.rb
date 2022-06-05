@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
     @answer.user = current_user
     if @answer.save
       flash[:alert] = 'Réponse enregistrée!'
-      redirect_to surveys_respond_path(@survey)
+      redirect_to survey_respond_path(@survey)
     end
   end
 

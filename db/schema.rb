@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2022_06_05_152552) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "overview"
+    t.boolean "active?", default: false
     t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 

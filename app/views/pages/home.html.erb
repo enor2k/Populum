@@ -5,11 +5,11 @@
 <% end %>
 
 <div class="container">
-    <% if Survey.count > 0 %>
+    <% if Survey.where(active?: true).count > 0 %>
       <div class="notif">
         <h2 class="ml-4">Sondage en cours!</h2>
-        <% Survey.all.each do |sondage| %>
-        <%= link_to "Répondre", surveys_respond_path(sondage), class:"btn btn-secondary m-4" %>
+        <% Survey.where(active?: true).each do |sondage| %>
+        <%= link_to "Répondre", survey_respond_path(sondage), class:"btn btn-secondary m-4" %>
         <% end %>
       </div>
     <% end %>
