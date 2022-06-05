@@ -1,7 +1,7 @@
 <div class="card-comment mb-3">
   <div class="card-comment-left">
     <div class="card-comment-top">
-      <%= image_tag "Enor2.png", class: "avatar" %>
+      <%= comment.user.avatar.attached? ? (cl_image_tag comment.user.avatar.key, class: 'avatar') : (image_tag "avatar.png", class: 'avatar') %>
       <h5><%= comment.user.first_name %> <%= comment.user.last_name %></h5>
     </div>
     <div class="card-comment-body">
