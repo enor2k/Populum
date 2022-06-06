@@ -4,7 +4,7 @@
   background-color: $blue; //blue is the new green
   height:50px;
   padding: 5px 60px 5px 60px;
-  color: white;
+  color: rgba(180, 180, 180, 0.648);
 
 
   .navbar-btn{
@@ -14,6 +14,7 @@
     justify-content: center;
     align-items: center;
     width: 40px;
+
   }
 
   .navbar-btn p{
@@ -21,4 +22,9 @@
     font-size: 10px;
     margin-bottom: 0px;
   }
+
+  .active {
+    color: white;
+  }
+
 }
