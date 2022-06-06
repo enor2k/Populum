@@ -1,6 +1,10 @@
-<h1> <%= question.title %> </h1>
+<div class="d-flex flex-column align-items-center">
+  <h4 class="mb-3"> <%= question.title %> </h4>
 
-<% if question.answer_type == 'single_choice' %>
-  <canvas class="chart" data-controller="dashboard" data-dashboard-target="chart" data-dashboard-type-value="<%= question.question_type %>" data-dashboard-keys-value="<%= @data_keys %>" data-dashboard-values-value="<%= @data_values %>" ></canvas>
-<% elsif question.answer_type == 'multiple_choice' %>
-<% end %>
+  <% if question.answer_type == 'single_choice' %>
+    <canvas class="chart" data-controller="dashboard" data-dashboard-target="chart" data-dashboard-type-value="<%= question.answer_type %>" data-dashboard-keys-value="<%= question_labels(question) %>" data-dashboard-values-value="<%= question_values(question) %>" ></canvas>
+
+  <% elsif question.answer_type == 'multiple_choice' %>
+    <canvas class="chart" data-controller="dashboard" data-dashboard-target="chart" data-dashboard-type-value="<%= question.answer_type %>" data-dashboard-keys-value="<%= question_labels(question) %>" data-dashboard-values-value="<%= question_values(question) %>" ></canvas>
+  <% end %>
+</div>

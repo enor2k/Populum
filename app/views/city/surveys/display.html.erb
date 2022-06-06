@@ -1,9 +1,11 @@
 <div class="container pt-4">
 
-  <h1>Résultats de <%= @survey.title %> </h1>
+  <h1>Résultats du sondage: <span style="font-style:italic"><%= @survey.title %></span> </h1>
 
+  <div class="dashboard-grid mt-5">
+    <% @survey.questions.each do |question| %>
+      <%= render 'question_chart', question: question %>
+    <% end %>
+  </div>
 
-  <% @survey.questions.each do |question| %>
-    <%= render 'question_chart', question: question %>
-  <% end %>
 </div>
