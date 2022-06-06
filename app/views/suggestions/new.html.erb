@@ -1,10 +1,8 @@
-<%= render "shared/top_header", titre: 'Nouvelle suggestion'%>
-
 <div class="container p-3">
-  <%= link_to "Back", suggestions_path %>
-
   <div class="form-div">
-    <%= render "form", suggestion: @suggestion %>
-  </div>
-
+    <h2 class="pt-4"> Nouvelle suggestion :</h2>
+      <div class="form-div">
+        <%= render "form", suggestion: @suggestion %>
+      </div>
+    </div>
 </div>
