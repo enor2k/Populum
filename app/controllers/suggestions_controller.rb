@@ -2,7 +2,7 @@ class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
 
   def index
-    @suggestions = Suggestion.all
+    @suggestions = Suggestion.order(created_at: :desc)
   end
 
   def show

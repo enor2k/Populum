@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
 
   def home
-    @suggestions = Suggestion.order(votes: :desc).limit(5)
+    @suggestions = Suggestion.order(cached_votes_total: :desc).limit(5)
     @users = User.order(score: :desc).limit(5)
   end
 end
