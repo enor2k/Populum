@@ -1,0 +1,7 @@
+<%= simple_form_for suggestion do |f| %>
+  <%= f.input :title, input_html: {value: suggestion.title, class: 'd-none' }%>
+  <%= f.input :content, {value: suggestion.content, class: 'd-none' } %>
+  <%= f.input :address, {value: suggestion.address, class: 'd-none' } %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit "Modifier la suggestion", class: "btn btn-outline-primary " %>
+<% end %>
