@@ -3,7 +3,7 @@
   <% @url = request.env["HTTP_REFERER"] %>
 
   <% if !@url.nil? %>
-    <% if @url.match?(/(\w+\W+)*new/) %>
+    <% if @url.match?(/(\w+\W+)*new/) || @url.match?(/(\w+\W+)*edit/) %>
       <%= link_to user_path(current_user) do %>
       <i class="fa-solid fa-angle-left"></i>
     <% end %>
