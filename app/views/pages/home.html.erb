@@ -21,6 +21,8 @@
   <%= link_to "Voir plus...", suggestions_path %>
   <h2 class=“ml-4”> Top Populumers :</h2>
   <%= render "shared/card_user", users: @users %>
+
+  <%= render "shared/mapbox", suggestions: @suggestions %>
 </div>
 
 <%= render "shared/btm_navbar" %>
