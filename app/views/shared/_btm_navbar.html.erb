@@ -1,28 +1,53 @@
 <div class="navbar btm-navbar">
-
-  <%= link_to suggestions_path do %>
-    <div class="navbar-btn">
-      <i class="fa-solid fa-bars-staggered"></i>
-      <p>Suggestions</p>
-    </div>
-  <% end %>
-
-  <%= link_to root_path do %>
-  <div class="navbar-btn">
-    <i class="fa-solid fa-house"></i>
-    <p>Accueil</p>
-    </div>
-  <% end %>
-
-  <% if user_signed_in? %>
-    <%= link_to user_path(current_user) do %>
+  <% if current_page?(suggestions_path) %>
+    <%= link_to suggestions_path do %>
+      <div class="navbar-btn active">
+        <i class="fa-solid fa-bars-staggered"></i>
+        <p>Suggestions</p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to suggestions_path do %>
       <div class="navbar-btn">
-        <i class="fa-solid fa-user"></i>
-        <p>Profil</p>
+        <i class="fa-solid fa-bars-staggered"></i>
+        <p>Suggestions</p>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if current_page?(root_path) %>
+    <%= link_to root_path do %>
+      <div class="navbar-btn active">
+        <i class="fa-solid fa-house"></i>
+        <p>Accueil</p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to root_path do %>
+      <div class="navbar-btn">
+        <i class="fa-solid fa-house"></i>
+        <p>Accueil</p>
       </div>
     <% end %>
   <% end %>
 
 
+  <% if user_signed_in? %>
+    <% if current_page?(user_path(current_user)) %>
+      <%= link_to user_path(current_user) do %>
+        <div class="navbar-btn active">
+          <i class="fa-solid fa-user"></i>
+          <p>Profil</p>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(current_user) do %>
+        <div class="navbar-btn">
+          <i class="fa-solid fa-user"></i>
+          <p>Profil</p>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
 
 </div>
