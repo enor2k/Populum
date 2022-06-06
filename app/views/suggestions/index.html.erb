@@ -3,12 +3,6 @@
 <div class="container">
   <%= render "shared/card_suggestion", suggestions: @suggestions%>
 
-  <div class="back">
-    <%= link_to url_for(:back) do %>
-      <i class="fa-solid fa-angle-left"></i>
-    <% end %>
-  </div>
-
   <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
 </div>
 
