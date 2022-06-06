@@ -1,5 +1,11 @@
 <div data-controller="suggests-modal">
 
+  <div class="back">
+    <%= link_to url_for(:back) do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
+
   <%= simple_form_for @suggestion, html: {class:"form-mobile"}, data: { suggests_modal_target: "form", action: "submit->suggests-modal#send" } do |f| %>
     <%= f.input :title, label:"Titre" %>
     <hr>
