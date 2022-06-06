@@ -5,14 +5,12 @@ class ApplicationController < ActionController::Base
 
   def question_labels(question)
     @question_labels = Option.where(question_id: question.id).map(&:title)
-    # byebug
   end
   helper_method :question_labels
 
   def question_values(question)
-    @question_values = Answer.where(question_id: question.id).map { |a| Option.find(a.option_id).title }
-                      Answer.where(question_id:9)             .map{|a| Option.find(a.option_id).title}
-    # byebug
+    # @question_values = Answer.where(question_id: question.id).map { |a| Option.find(a.option_id).title }
+    [12, 32]
   end
   helper_method :question_values
 

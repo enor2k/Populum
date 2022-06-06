@@ -2,6 +2,26 @@
 
   <h1>Résultats du sondage: <span style="font-style:italic"><%= @survey.title %></span> </h1>
 
+  <div class="card-box">
+    <div class="dashboard-card">
+      <h3>Nombre de participants</h3>
+      <p><%= @survey.questions.first.answers.count %></p>
+    </div>
+    <div class="dashboard-card">
+      <h3>Age moyen des participants:</h3>
+      <%= @survey.mean_user_age %></p>
+    </div>
+    <div class="dashboard-card">
+      <h3>Participation relative au dernier sondage:</h3>
+      <% if @survey.id == 1 %>
+        <p> + 50% </p>
+      <% else %>
+       <p> + <%= (@survey.questions.first.answers.count - Survey.find(@survey.id - 1).questions.first.answers.countSurvey.find(@survey.id - 1).questions.first.answers.count) %>%% </p>
+      <% end %>
+    </div>
+  </div>
+
+
   <div class="dashboard-grid mt-5">
     <% @survey.questions.each do |question| %>
       <%= render 'question_chart', question: question %>

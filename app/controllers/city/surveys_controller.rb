@@ -36,11 +36,6 @@ class City::SurveysController < ApplicationController
     redirect_to city_surveys_path
   end
 
-  def display
-    @data_keys = ['18-25', '25-35', '35-45', '45-55', '55-65', '65+']
-    @data_values = [12, 19, 3, 5, 2, 3]
-  end
-
   private
 
   def set_survey
