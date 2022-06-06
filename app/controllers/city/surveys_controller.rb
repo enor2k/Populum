@@ -37,15 +37,8 @@ class City::SurveysController < ApplicationController
   end
 
   def display
-    @data_keys = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-    ]
-    @data_values = [0, 10, 5, 2, 20, 30, 45]
+    @data_keys = ['18-25', '25-35', '35-45', '45-55', '55-65', '65+']
+    @data_values = [12, 19, 3, 5, 2, 3]
   end
 
   private

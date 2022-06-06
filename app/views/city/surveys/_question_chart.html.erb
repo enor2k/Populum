@@ -1,0 +1,6 @@
+<h1> <%= question.title %> </h1>
+
+<% if question.answer_type == 'single_choice' %>
+  <canvas class="chart" data-controller="dashboard" data-dashboard-target="chart" data-dashboard-type-value="<%= question.question_type %>" data-dashboard-keys-value="<%= @data_keys %>" data-dashboard-values-value="<%= @data_values %>" ></canvas>
+<% elsif question.answer_type == 'multiple_choice' %>
+<% end %>

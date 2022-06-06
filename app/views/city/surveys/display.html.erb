@@ -1,3 +1,9 @@
-<h1>Résultats de <%= @survey.title %> </h1>
+<div class="container pt-4">
 
-<canvas id="myChart" data-controller="dashboard"  data-labels="<%= @data_keys %>" data-data="<%= @data_values %>" ></canvas>
+  <h1>Résultats de <%= @survey.title %> </h1>
+
+
+  <% @survey.questions.each do |question| %>
+    <%= render 'question_chart', question: question %>
+  <% end %>
+</div>
