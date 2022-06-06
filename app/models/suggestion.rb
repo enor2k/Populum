@@ -8,4 +8,8 @@ class Suggestion < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  scope :most_voted, -> { order(cached_votes_total: :desc) }
+  scope :most_recent, -> { order(created_at: :desc) }
+
 end

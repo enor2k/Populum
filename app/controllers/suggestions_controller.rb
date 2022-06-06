@@ -2,7 +2,10 @@ class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
 
   def index
-    @suggestions = Suggestion.order(created_at: :desc)
+    # raise
+      @suggestions = Suggestion.order(created_at: :desc)
+      @most_voted = Suggestion.order(cached_votes_total: :desc)
+      @most_recent = Suggestion.order(created_at: :desc)
   end
 
   def show
