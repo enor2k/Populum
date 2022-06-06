@@ -3,11 +3,6 @@ class SuggestionsController < ApplicationController
 
   def index
     @suggestions = Suggestion.all
-    @markers = @suggestions.geocoded.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
     end
   end
 
