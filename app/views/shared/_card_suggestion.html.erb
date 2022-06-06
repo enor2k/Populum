@@ -4,7 +4,7 @@
   <div class="card-suggestion" id= <%="suggestion-#{suggestion.id}"%> >
     <div class="card-suggestion-left">
       <div class="card-suggestion-top">
-        <%= image_tag "Enor2.png", class: "avatar" %>
+        <%= suggestion.user.avatar.attached? ? (cl_image_tag suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')%>
         <h5><%= suggestion.title %></h5>
       </div>
       <div class= "card-suggestion-body">

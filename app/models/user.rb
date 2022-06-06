@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :avatar
   has_many :suggestions, dependent: :destroy
   has_many :comments, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -8,4 +9,6 @@ class User < ApplicationRecord
 
   has_many :suggestion_votes, dependent: :destroy
   has_many :comment_votes, dependent: :destroy
+
+  GENDERS = ["femme", "homme", "non-binaire"]
 end
