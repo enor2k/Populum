@@ -1,19 +1,10 @@
 <div class="container">
   <div class="back">
-  <% @url = request.env["HTTP_REFERER"] %>
-
-  <% if !@url.nil? %>
-    <% if @url.match?(/(\w+\W+)*new/) || @url.match?(/(\w+\W+)*edit/) %>
-      <%= link_to user_path(current_user) do %>
+    <%= link_to url_for(:back) do %>
       <i class="fa-solid fa-angle-left"></i>
     <% end %>
-    <% end %>
-  <% else %>
-     <%= link_to url_for(:back) do %>
-        <i class="fa-solid fa-angle-left"></i>
-      <% end %>
-  <% end %>
-</div>
+  </div>
+
 
   <div class="card-suggestion-show">
     <div class="card-suggestion-top">
