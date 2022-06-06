@@ -1,4 +1,4 @@
-<%= simple_form_for @survey, html:{'data-controller':'flatpickr'} do |form| %>
+<%= simple_form_for [:city, @survey], html:{'data-controller':'flatpickr'} do |form| %>
   <div class="field">
     <%= form.input :title %>
     <%= form.input :overview %>
