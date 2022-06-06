@@ -1,6 +1,10 @@
 <div class="container">
+  <div class="back">
+    <%= link_to url_for(:back) do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
 
-  <%= link_to 'Retour', url_for(:back), class: "btn btn-outline-primary mb-3" %>
 
   <div class="card-suggestion-show">
     <div class="card-suggestion-top">

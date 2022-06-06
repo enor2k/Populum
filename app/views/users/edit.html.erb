@@ -1,7 +1,12 @@
 <div class="container">
+  <div class="back">
+    <%= link_to users_path do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
 
   <div class="form-div">
       <%= render "form", user: @suggestion %>
-      <%= link_to "Back", users_path %>
+
+  </div>
   </div>
 </div>
