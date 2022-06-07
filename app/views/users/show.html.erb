@@ -5,8 +5,8 @@
 
   <div class="container">
 
-    <p class= "user-score">Vos points : <%= @user.score %></p>
-    <h2 class="text-center">Vos suggestions :</h2>
+    <p class= "user-score">Vos punctum : <%= @user.score %></p>
+    <h2 class="text-center"><i class="fa-solid fa-scroll"></i> Vos suggestions</h2>
     <% @suggestions.each do |suggestion| %>
       <%= link_to suggestion_path(suggestion) do %>
         <%= render "shared/card_suggestion", suggestion: suggestion%>
