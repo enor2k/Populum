@@ -7,7 +7,6 @@
   height: 88vh;
   width: 100%;
   display: flex;
-  background-color: aquamarine;
   padding: 3px;
   justify-content: space-between;
   width: 100vw;
@@ -15,12 +14,10 @@
 
 
 .right-dashboard{
-  // padding: 20px;
-  border: solid;
   display: flex;
   justify-content: space-around;
-  background-color: gold;
   flex-shrink: 1000 ;
+  padding-top: 20px;
 
   .center-dashboard{
     height: 100%;
@@ -29,7 +26,6 @@
     overflow: scroll;
     border-right: solid;
     flex-shrink: 1;
-    background-color: azure;
     padding: 10px;
   }
 
@@ -41,7 +37,6 @@
     width: 50%;
     height: 100%;
     overflow: scroll;
-    background-color: beige;
     padding: 10px;
   }
 }

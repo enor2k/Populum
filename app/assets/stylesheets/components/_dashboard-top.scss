@@ -1,8 +1,10 @@
 .dashboard-top{
   height: 10vh;
-  border: solid;
   display: flex;
   align-items: center;
+  padding: 20px;
+  box-shadow: 2px 2px 5px lightgray;
+
 
   h1{
     margin-bottom: 0px;
@@ -14,7 +16,6 @@
 
   .left{
     width: 180px;
-    border: solid;
     display: flex;
     justify-content: space-around;
     align-items: center;

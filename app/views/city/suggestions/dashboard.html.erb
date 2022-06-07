@@ -9,19 +9,21 @@
       <%= render 'city/shared/left_navbar' %>
     </div>
 
-    <div class="right-dashboard">
+    <div class="right-dashboard" data-controller="slack" >
       <div class="center-dashboard">
         <h4 class="mb-4">Suggestions populaires</h4>
 
         <% @suggestions.each do |suggestion| %>
-          <%= link_to suggestion_path(suggestion) do %>
-            <%= render "shared/card_suggestion", suggestion: suggestion, namespace: 'city' %>
-          <% end %>
+
+            <div data-action="click->slack#focus" data-id="<%= suggestion.id %>">
+              <%= render "shared/card_suggestion", suggestion: suggestion, namespace: 'city' %>
+            </div>
+
         <% end %>
       </div>
 
-      <div class="far-right-dashboard">
-        <%= render 'suggestion_show', suggestion: @suggestion, comment: Comment.new %>
+      <div class="far-right-dashboard" data-slack-target="showZone">
+        <%= render 'suggestion_show', suggestion: @suggestion_focus, comment: Comment.new %>
       </div>
 
     </div>

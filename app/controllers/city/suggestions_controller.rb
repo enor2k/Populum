@@ -16,6 +16,11 @@ class City::SuggestionsController < ApplicationController
   def dashboard
     @suggestions = Suggestion.all
     @suggestion = @suggestions.first
+    if params[:param].present?
+      @suggestion_focus = Suggestion.find(params[:param])
+    else
+      @suggestion_focus = Suggestion.first
+    end
   end
 
   def upvote
