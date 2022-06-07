@@ -16,7 +16,6 @@ class SuggestionsController < ApplicationController
 
   def show
     @comment = Comment.new
-    raise
   end
 
   def new
