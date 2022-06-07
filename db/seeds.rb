@@ -27,6 +27,7 @@ puts "Creating Enor"
                      password: "123456",
                      role: "citizen",
                      score: rand(50..654),
+                     birthday: Date.new(1995-3-02),
                      address: "72 Rue de la Merci, Bordeaux")
   puts "Enor de Kerdanet signed up"
 
@@ -57,6 +58,7 @@ puts "Creating Brice"
                      email: "bricep@populum.com",
                      password: "123456",
                      role: "citizen",
+                     birthday: Date.new(1978-8-03),
                      score: rand(50..654),
                      address: "82 Rue Clare, Bordeaux")
   puts "Brice Pirioua signed up"
@@ -89,6 +91,7 @@ puts "Creating Cyprien"
                      email: "cyprienr@populum.com",
                      password: "123456",
                      role: "citizen",
+                     birthday: Date.new(1999-3-02),
                      score: rand(50..654),
                      address: "35 Cours Balguerie Stuttenberg, Bordeaux")
   puts "Cyprien Rezki signed up"
@@ -119,6 +122,7 @@ puts "Creating Marc"
                      last_name: "Delesalle",
                      email: "marcd@populum.com",
                      password: "123456",
+                     birthday: Date.new(1985-3-02),
                      role: "citizen",
                      score: rand(50..654),
                      address: "41 Rue Saint-Sernin, Bordeaux")
@@ -152,6 +156,7 @@ puts "Creating Adrien"
                      email: "adreins@populum.com",
                      password: "123456",
                      role: "citizen",
+                     birthday: Date.new(2000-3-02),
                      score: rand(50..654),
                      address: "87 Avenue Jules Guesde, Bordeaux")
   puts "Adrien Schaffner signed up"

@@ -1,0 +1,11 @@
+<div class="question-chart">
+  <h4 class="mb-3"> <%= question.title %> </h4>
+  <div class="chart-div">
+    <% if question.answer_type == 'single_choice' %>
+      <canvas class="chart" data-controller="dashboard" data-dashboard-target="chart" data-dashboard-type-value="<%= question.answer_type %>" data-dashboard-keys-value="<%= question.answer_keys %>" data-dashboard-values-value="<%= question.answer_values %>" ></canvas>
+
+    <% elsif question.answer_type == 'multiple_choice' %>
+      <canvas class="chart" data-controller="dashboard" data-dashboard-target="chart" data-dashboard-type-value="<%= question.answer_type %>" data-dashboard-keys-value="<%= question.answer_keys %>" data-dashboard-values-value="<%= question.answer_values %>" ></canvas>
+    <% end %>
+  </div>
+</div>
