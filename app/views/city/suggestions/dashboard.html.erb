@@ -15,7 +15,7 @@
 
         <% @suggestions.each do |suggestion| %>
           <%= link_to suggestion_path(suggestion) do %>
-            <%= render "shared/card_suggestion", suggestion: suggestion, namespace: 'city'%>
+            <%= render "shared/card_suggestion", suggestion: suggestion, namespace: 'city' %>
           <% end %>
         <% end %>
       </div>

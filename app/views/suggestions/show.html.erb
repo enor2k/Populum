@@ -1,64 +1,66 @@
-<div class="container">
-  <div class="back">
-    <%= link_to url_for(:back) do %>
-      <i class="fa-solid fa-angle-left"></i>
-    <% end %>
-  </div>
-
-
-  <div class="card-suggestion-show">
-    <div class="card-suggestion-top">
-      <%= @suggestion.user.avatar.attached? ? (cl_image_tag @suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')  %>
-      <div class="card-suggestion-title">
-        <h5><%= @suggestion.title %></h5>
-          <div class="address"><%= @suggestion.address %></div>
-      </div>
-    </div>
-    <div class= "card-suggestion-body">
-      <div class="card-suggestion-left">
-          <p class= "text"><%= @suggestion.content%></p>
-      </div>
-      <div class= "votes">
-        <%= link_to suggestion_upvote_path(@suggestion) do %>
-          <i class="fa-solid fa-angle-up"></i>
-        <% end %>
-        <p><%= @suggestion.weighted_score %></p>
-        <%= link_to suggestion_downvote_path(@suggestion) do %>
-          <i class="fa-solid fa-angle-down"></i>
-        <% end %>
-      </div>
-    </div>
-    <div class="status">On y travaille !</div>
-    <div class="boutons">
-      <% if user_signed_in? && @suggestion.user == current_user %>
-        <%= link_to edit_suggestion_path(@suggestion) do %>
-          <i class="fa-solid fa-pen-to-square"></i>
-        <% end %>
-        <%= link_to suggestion_path(@suggestion), method: :delete do %>
-          <i class="fa-solid fa-trash-can"></i>
-        <% end %>
+<div class="show-div-city">
+  <div class="container">
+    <div class="back">
+      <%= link_to url_for(:back) do %>
+        <i class="fa-solid fa-angle-left"></i>
       <% end %>
     </div>
-    <div class="card-suggestion-photo">
-    <%= @suggestion.photo.attached? ? (cl_image_tag @suggestion.photo.key, class: 'photo '): () %>
+
+
+    <div class="card-suggestion-show">
+      <div class="card-suggestion-top">
+        <%= @suggestion.user.avatar.attached? ? (cl_image_tag @suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')  %>
+        <div class="card-suggestion-title">
+          <h5><%= @suggestion.title %></h5>
+            <div class="address"><%= @suggestion.address %></div>
+        </div>
+      </div>
+      <div class= "card-suggestion-body">
+        <div class="card-suggestion-left">
+            <p class= "text"><%= @suggestion.content%></p>
+        </div>
+        <div class= "votes">
+          <%= link_to suggestion_upvote_path(@suggestion) do %>
+            <i class="fa-solid fa-angle-up"></i>
+          <% end %>
+          <p><%= @suggestion.weighted_score %></p>
+          <%= link_to suggestion_downvote_path(@suggestion) do %>
+            <i class="fa-solid fa-angle-down"></i>
+          <% end %>
+        </div>
+      </div>
+      <div class="status">On y travaille !</div>
+      <div class="boutons">
+        <% if user_signed_in? && @suggestion.user == current_user %>
+          <%= link_to edit_suggestion_path(@suggestion) do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          <%= link_to suggestion_path(@suggestion), method: :delete do %>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="card-suggestion-photo">
+      <%= @suggestion.photo.attached? ? (cl_image_tag @suggestion.photo.key, class: 'photo '): () %>
+      </div>
     </div>
+
+    <% if @suggestion.comments.size > 0 %>
+      <h3>Commentaires:</h3>
+
+      <% @suggestion.comments.each do |comment| %>
+
+        <%= render "shared/card_comment", comment: comment%>
+      <% end %>
+    <% end %>
+
   </div>
 
-  <% if @suggestion.comments.size > 0 %>
-    <h3>Commentaires:</h3>
 
-    <% @suggestion.comments.each do |comment| %>
-
-      <%= render "shared/card_comment", comment: comment%>
-    <% end %>
+  <%= simple_form_for([ @suggestion, Comment.new ], html: { class: "fixed-bottom comment-form"}) do |f| %>
+    <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
+    <button type="submit">
+      <i class="fa-solid fa-paper-plane"></i>
+  </button>
   <% end %>
-
 </div>
-
-
-<%= simple_form_for([ @suggestion, Comment.new ], html: { class: "fixed-bottom comment-form"}) do |f| %>
-  <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
-  <button type="submit">
-    <i class="fa-solid fa-paper-plane"></i>
-</button>
-<% end %>
