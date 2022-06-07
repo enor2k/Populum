@@ -23,3 +23,33 @@
     width: 10vw;
   }
 }
+
+// Dans le dashboard mairie
+.comment-form-dashboard{
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .comment_content{
+    flex-grow: 1;
+  }
+
+  textarea{
+    height:38px;
+    margin:0px;
+    flex-grow: 1;
+    background-color: white;
+  }
+
+  .mb-3{
+    margin-bottom: 0px !important;
+  }
+
+  button{
+    border: none;
+    background-color: white;
+    color: $lighter-green;
+    width: 10%;
+  }
+}

@@ -1,7 +1,7 @@
 <div class="dashboard-container">
 
   <div class="dashboard-top">
-    <%= render 'city/shared/dashboard_top', page_title: "Sondages" %>
+    <%= render 'city/shared/dashboard_top', page_title: "Suggestions citoyennes" %>
   </div>
 
   <div class="main-dashboard">
@@ -11,13 +11,19 @@
 
     <div class="right-dashboard">
       <div class="center-dashboard">
-        <%= render "shared/card_suggestion", suggestions: @suggestions%>
+        <h4 class="mb-4">Suggestions populaires</h4>
+
+        <% @suggestions.each do |suggestion| %>
+          <%= link_to suggestion_path(suggestion) do %>
+            <%= render "shared/card_suggestion", suggestion: suggestion, namespace: 'city'%>
+          <% end %>
+        <% end %>
       </div>
+
       <div class="far-right-dashboard">
+        <%= render 'suggestion_show', suggestion: @suggestion, comment: Comment.new %>
       </div>
+
     </div>
-
   </div>
-
-
 </div>

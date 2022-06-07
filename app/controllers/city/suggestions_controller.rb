@@ -15,6 +15,17 @@ class City::SuggestionsController < ApplicationController
 
   def dashboard
     @suggestions = Suggestion.all
+    @suggestion = @suggestions.first
+  end
+
+  def upvote
+    @suggestion.liked_by current_user
+    redirect_to city_suggestions_dashboard_path
+  end
+
+  def downvote
+    @suggestion.downvote_from current_user
+    redirect_to city_suggestions_dashboard_path
   end
 
   private

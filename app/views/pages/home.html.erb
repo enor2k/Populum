@@ -16,7 +16,11 @@
 
   <h2 class="ml-4 text-center"><i class="fa-solid fa-ranking-star"></i> Suggestions</h2>
   <div class="horizontal-scroll">
-    <%= render "shared/card_suggestion", suggestions: @suggestions %>
+    <% @suggestions.each do |suggestion| %>
+      <%= link_to suggestion_path(suggestion) do %>
+        <%= render "shared/card_suggestion", suggestion: suggestion %>
+      <% end %>
+    <% end %>
   </div>
 
   <h2 class="ml-4 text-center"><i class="fa-solid fa-ranking-star"></i> Populumers</h2>

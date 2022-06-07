@@ -49,14 +49,14 @@
 
     <% @suggestion.comments.each do |comment| %>
 
-      <%= render "shared/card_comment", comment: comment %>
+      <%= render "shared/card_comment", comment: comment%>
     <% end %>
   <% end %>
 
 </div>
 
 
-<%= simple_form_for([ @suggestion, @comment ], html: { class: "fixed-bottom comment-form"}) do |f| %>
+<%= simple_form_for([ @suggestion, Comment.new ], html: { class: "fixed-bottom comment-form"}) do |f| %>
   <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
   <button type="submit">
     <i class="fa-solid fa-paper-plane"></i>
