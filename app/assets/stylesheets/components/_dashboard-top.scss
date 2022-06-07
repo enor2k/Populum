@@ -1,0 +1,29 @@
+.dashboard-top{
+  height: 10vh;
+  border: solid;
+  display: flex;
+  align-items: center;
+
+  h1{
+    margin-bottom: 0px;
+  }
+
+  h5{
+    margin-bottom: 0px;
+  }
+
+  .left{
+    width: 180px;
+    border: solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 40px;
+  }
+
+  .logo{
+    width: 60px;
+    height: 60px;
+  }
+
+}

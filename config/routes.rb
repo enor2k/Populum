@@ -19,10 +19,12 @@ Rails.application.routes.draw do
   end
 
   namespace :city do
-    resources :surveys
-    resources :suggestions, only: %i[update]
-    get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
-    get 'surveys/:id/display', to: 'surveys#display', as: 'survey_display'
+    resources :surveys, except: [:destroy]
+    resources :suggestions, only: %i[index update]
+    get 'suggestions/dashboard', to: 'suggestions#dashboard', as: 'suggestions_dashboard'
+
+    get 'survey/:id/display', to: 'surveys#display', as: 'survey_display'
+    get 'dashboards/main', to: 'dashboards#dashboard_main', as: 'dashboard_main'
     patch 'surveys/:id/archive', to: 'surveys#archive', as: 'survey_archive'
   end
 

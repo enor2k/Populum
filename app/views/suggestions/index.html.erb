@@ -1,10 +1,12 @@
 <div class="full-screen">
+
   <%= render "shared/top_header", titre: 'Suggestions'%>
 
-<div class="container">
-  <%= render "shared/card_suggestion", suggestions: @suggestions%>
+  <div class="container">
+    <%= render "shared/card_suggestion", suggestions: @suggestions%>
 
-  <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
+    <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
+  </div>
+  <%= render "shared/btm_navbar" %>
+
 </div>
-
-<%= render "shared/btm_navbar" %>

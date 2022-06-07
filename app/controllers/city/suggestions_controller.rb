@@ -1,4 +1,4 @@
-class SuggestionsController < ApplicationController
+class City::SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
 
   def index
@@ -11,6 +11,10 @@ class SuggestionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def dashboard
+    @suggestions = Suggestion.all
   end
 
   private

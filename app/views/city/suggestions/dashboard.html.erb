@@ -1,0 +1,23 @@
+<div class="dashboard-container">
+
+  <div class="dashboard-top">
+    <%= render 'city/shared/dashboard_top', page_title: "Sondages" %>
+  </div>
+
+  <div class="main-dashboard">
+    <div class="left-nav">
+      <%= render 'city/shared/left_navbar' %>
+    </div>
+
+    <div class="right-dashboard">
+      <div class="center-dashboard">
+        <%= render "shared/card_suggestion", suggestions: @suggestions%>
+      </div>
+      <div class="far-right-dashboard">
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
