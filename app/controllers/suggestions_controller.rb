@@ -1,6 +1,6 @@
 class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
-  before_action :set_link, only: %i[show]
+
 
   def index
     # raise
@@ -66,10 +66,6 @@ class SuggestionsController < ApplicationController
 
   def set_suggestion
     @suggestion = Suggestion.find(params[:id])
-  end
-
-  def set_link
-    @link = request.env["HTTP_REFERER"]
   end
 
 end
