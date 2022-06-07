@@ -45,12 +45,12 @@ class SuggestionsController < ApplicationController
 
   def upvote
     @suggestion.liked_by current_user
-    redirect_to root_path(anchor: "suggestion-#{@suggestion.id}")
+    redirect_to suggestions_path(anchor: "suggestion-#{@suggestion.id}")
   end
 
   def downvote
     @suggestion.downvote_from current_user
-    redirect_to root_path(anchor: "suggestion-#{@suggestion.id}")
+    redirect_to suggestions_path(anchor: "suggestion-#{@suggestion.id}")
   end
 
   private

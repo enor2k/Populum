@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   namespace :city do
     resources :surveys
     resources :suggestions, only: %i[update]
+    get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
     get 'surveys/:id/display', to: 'surveys#display', as: 'survey_display'
     patch 'surveys/:id/archive', to: 'surveys#archive', as: 'survey_archive'
   end

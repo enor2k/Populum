@@ -5,5 +5,22 @@
   .card-suggestion {
     min-width: 80%;
     margin-left: 0px;
+    padding: 14px 1px 11px 18px;
+
+    h5{
+      font-size: 18px;
+    }
   }
+
+  .card-suggestion-top {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .votes {
+    padding: 30px 10px 30px 10px;
+  }
+
 }
