@@ -1,8 +1,6 @@
 <%= render "shared/top_header", titre: 'Accueil'%>
 
-<% unless user_signed_in? %>
-  <%= link_to "Se connecter", new_user_session_path, class:"btn btn-primary m-4" %>
-<% end %>
+
 
 <div class="container">
     <% if Survey.where(active?: true).count > 0 %>

@@ -62,9 +62,9 @@
       <%= render "shared/card_comment", comment: comment %>
     <% end %>
   <% end %>
-
 </div>
 
+<h6 class="do-not-remove">NE PAS SUPPRIMER</h6>
 
 <%= simple_form_for([ @suggestion, @comment ], html: { class: "fixed-bottom comment-form"}) do |f| %>
   <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
