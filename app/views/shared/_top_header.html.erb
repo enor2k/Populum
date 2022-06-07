@@ -1,8 +1,14 @@
 <div class="top-header">
-  <% if user_signed_in? && current_user.avatar.attached? %>
-    <%= cl_image_tag current_user.avatar.key, class: 'avatar' %>
-  <% elsif user_signed_in?%>
-    <%= image_tag "avatar.png", class: 'avatar' %>
-  <% end %>
+  <%= image_tag "Populum.png", class:"avatar-large" %>
   <h1> <%= titre %> </h1>
+  <div>
+    <% if user_signed_in? && current_user.avatar.attached? %>
+      <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% else %>
+      <%= image_tag "avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% end %>
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+      <%= user_signed_in? ? (link_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item") : (link_to "Se connecter", new_user_session_path, class:"dropdown-item")  %>
+    </div>
+  </div>
 </div>
