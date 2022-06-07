@@ -7,8 +7,13 @@
 
     <p class= "user-score">Vos punctum : <%= @user.score %></p>
     <h2 class="text-center"><i class="fa-solid fa-scroll"></i> Vos suggestions</h2>
+    <% @suggestions.each do |suggestion| %>
+      <%= link_to suggestion_path(suggestion) do %>
+        <%= render "shared/card_suggestion", suggestion: suggestion%>
+      <% end %>
+    <% end %>
 
-    <%= render "shared/card_suggestion", suggestions: @suggestions%>
+    <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:"btn btn-primary" %>
 
   </div>
 </div>

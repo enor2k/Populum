@@ -1,24 +1,39 @@
-<div class="container">
+<div class="dashboard-container">
 
-  <h1 class="my-5">Surveys index</h1>
-  <%= link_to "Nouveau sondage", new_city_survey_path, class:"btn btn-primary mb-3" %>
+  <div class="dashboard-top">
+    <%= render 'city/shared/dashboard_top', page_title: "Sondages" %>
+  </div>
 
-  <% @surveys.each do |survey| %>
-    <%= link_to city_survey_path(survey) do %>
-      <div class="card mb-4">
-        <div class="card-header">
-          <h3><%= survey.title %></h3>
-        </div>
-        <div class="card-body">
-          <p>ID: <%= survey.id %> </p>
-          <p class="card-text"><%= survey.overview %></p>
-          <%= link_to "Modifier sondage", edit_city_survey_path(survey), class:"btn btn-secondary"%>
-          <%= link_to "Visualiser résultats", city_survey_display_path(survey), class:"btn btn-secondary"%>
-          <% if survey.active? %>
-            <%= link_to "Archiver sondage", city_survey_archive_path(survey), method: :PATCH, class:"btn btn-secondary"%>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  <div class="main-dashboard">
+    <div class="left-nav">
+      <%= render 'city/shared/left_navbar' %>
+    </div>
+
+    <div class="right-dashboard">
+      <%= link_to "Nouveau sondage", new_city_survey_path, class:"btn btn-primary mb-3" %>
+
+      <% @surveys.each do |survey| %>
+        <%= link_to city_survey_path(survey) do %>
+          <div class="card mb-4">
+            <div class="card-header">
+              <h3><%= survey.title %></h3>
+            </div>
+            <div class="card-body">
+              <p>ID: <%= survey.id %> </p>
+              <p class="card-text"><%= survey.overview %></p>
+              <%= link_to "Modifier sondage", edit_city_survey_path(survey), class:"btn btn-secondary"%>
+              <%= link_to "Visualiser résultats", city_survey_display_path(survey), class:"btn btn-secondary"%>
+              <% if survey.active? %>
+                <%= link_to "Archiver sondage", city_survey_archive_path(survey), method: :PATCH, class:"btn btn-secondary"%>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+
+  </div>
+
+
 </div>

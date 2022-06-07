@@ -36,6 +36,9 @@ class City::SurveysController < ApplicationController
     redirect_to city_surveys_path
   end
 
+  def display
+  end
+
   private
 
   def set_survey
