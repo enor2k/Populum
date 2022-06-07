@@ -1,12 +1,15 @@
 <div class="full-screen">
   <%= render "shared/top_header", titre: 'Suggestions'%>
-<div class="container">
-  <%= link_to "Populaires", suggestions_path(@most_voted) %>
-  <%= link_to "Récents", suggestions_path(@most_recent) %>
+  <div class="container">
+    <%= simple_form_for suggestions_path, method: :get do |f| %>
+      <%= f.submit "Populaires", class: "btn btn-primary"%>
+      <%= f.submit "Récents", class: "btn btn-primary"%>
+    <% end %>
 
-  <%= render "shared/card_suggestion", suggestions: @suggestions%>
+    <%= render "shared/card_suggestion", suggestions: @suggestions%>
 
-  <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
+    <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
+  </div>
+
+  <%= render "shared/btm_navbar" %>
 </div>
-
-<%= render "shared/btm_navbar" %>

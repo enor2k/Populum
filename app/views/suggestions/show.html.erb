@@ -1,7 +1,17 @@
 <div class="container">
   <div class="back">
-    <%= link_to url_for(:back) do %>
-      <i class="fa-solid fa-angle-left"></i>
+    <% if request.referer ==  "http://localhost:3000/suggestions/new"%>
+      <%= link_to user_path(current_user) do %>
+        <i class="fa-solid fa-angle-left"></i>
+      <% end %>
+    <% elsif request.referer == 'http://localhost:3000/suggestions/19' %>
+      <%= link_to user_path(current_user) do %>
+        <i class="fa-solid fa-angle-left"></i>
+      <% end %>
+    <% else %>
+      <%= link_to url_for(:back) do %>
+        <i class="fa-solid fa-angle-left"></i>
+      <% end %>
     <% end %>
   </div>
 
