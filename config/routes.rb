@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  # ROOT
   root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  ###################################################### CITOYENS
   resources :users, only: %i[show]
   resources :comments, only: %i[destroy]
 
@@ -18,17 +21,26 @@ Rails.application.routes.draw do
     resources :answers, only: [:create]
   end
 
-  namespace :city do
-    resources :surveys
-    resources :suggestions, only: %i[update]
-    get 'dashboard', to: 'pages#dashboard', as: 'dashboard'
-    get 'surveys/:id/display', to: 'surveys#display', as: 'survey_display'
-    patch 'surveys/:id/archive', to: 'surveys#archive', as: 'survey_archive'
-  end
-
   get 'surveys/:id/answer', to: 'surveys#respond', as: 'survey_respond'
   get 'suggestions/:id/upvote', to: 'suggestions#upvote', as: 'suggestion_upvote'
   get 'suggestions/:id/downvote', to: 'suggestions#downvote', as: 'suggestion_downvote'
   get 'comments/:id/upvote', to: 'comments#upvote', as: 'comment_upvote'
   get 'comments/:id/downvote', to: 'comments#downvote', as: 'comment_downvote'
+
+
+  ####################################################### NAMESPACE CITY
+
+  namespace :city do
+    resources :surveys, except: [:destroy]
+    resources :suggestions, only: %i[index update]
+    get 'suggestions/dashboard', to: 'suggestions#dashboard', as: 'suggestions_dashboard'
+
+    get 'survey/:id/display', to: 'surveys#display', as: 'survey_display'
+    get 'dashboards/main', to: 'dashboards#dashboard_main', as: 'dashboard_main'
+    patch 'surveys/:id/archive', to: 'surveys#archive', as: 'survey_archive'
+    get 'suggestions/:id/upvote', to: 'suggestions#upvote', as: 'suggestion_upvote'
+    get 'suggestions/:id/downvote', to: 'suggestions#downvote', as: 'suggestion_downvote'
+    get 'comments/:id/upvote', to: 'comments#upvote', as: 'comment_upvote'
+    get 'comments/:id/downvote', to: 'comments#downvote', as: 'comment_downvote'
+  end
 end

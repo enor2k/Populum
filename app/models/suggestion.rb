@@ -1,4 +1,5 @@
 class Suggestion < ApplicationRecord
+  enum status: { pending: 0, processed: 1, done: 2 }
   has_one_attached :photo
   belongs_to :user
   acts_as_votable

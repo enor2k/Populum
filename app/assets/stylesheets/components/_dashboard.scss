@@ -1,58 +1,42 @@
-.dashboard-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  justify-content: center;
-  align-items: center;
+.dashboard-container{
+  margin: 10px;
+  overflow: hidden;
 }
 
-.question-chart{
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  transition: transform .1s;
-}
-
-.chart-div{
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-box{
+.main-dashboard{
+  height: 88vh;
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-top: solid;
-  border-bottom: solid;
-  border-color: $beige;
-  margin: 30px 0px 30px 0px;
-  padding: 30px 0px 30px 0px;
+  padding: 3px;
+  justify-content: space-between;
+  width: 100vw;
 }
 
-.dashboard-card {
-  height: 100px;
-  width: auto;
-  box-shadow: 3px 3px 8px lightgray;
-  border-radius: $border-radius;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  transition: transform .1s;
 
-    h3{
-      font-size: 16px;
-      text-align: center;
-    }
+.right-dashboard{
+  display: flex;
+  justify-content: space-around;
+  flex-shrink: 1000 ;
+  padding-top: 20px;
+
+  .center-dashboard{
+    height: 100%;
+    width: 50%;
+    padding-right: 2px;
+    overflow: scroll;
+    border-right: solid;
+    flex-shrink: 1;
+    padding: 10px;
   }
-  .dashboard-card:hover{
-    box-shadow: 3px 3px 10px grey;
-    transform: scale(1.02);
+
+  .far-right-dashboard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 10px;
+    width: 50%;
+    height: 100%;
+    overflow: scroll;
+    padding: 10px;
   }
+}

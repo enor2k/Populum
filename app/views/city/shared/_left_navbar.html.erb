@@ -1,0 +1,11 @@
+<%= link_to city_dashboard_main_path, class:"left-nav-btn #{current_page?(city_dashboard_main_path) ? 'active' : ''}" do %>
+  <i class="fa-solid fa-house"></i> Accueil
+<% end %>
+
+<%= link_to city_suggestions_dashboard_path, class:"left-nav-btn #{current_page?(city_suggestions_dashboard_path) ? 'active' : ''}" do %>
+  <i class="fa-solid fa-bars-staggered"></i> Suggestions
+<% end %>
+
+<%= link_to city_surveys_path, class:"left-nav-btn #{current_page?(city_surveys_path) ? 'active' : ''}" do %>
+  <i class="fa-solid fa-square-poll-vertical"></i> Sondages
+<% end %>

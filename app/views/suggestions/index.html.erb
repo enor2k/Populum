@@ -1,4 +1,5 @@
 <div class="full-screen">
+
   <%= render "shared/top_header", titre: 'Suggestions'%>
   <div class="container">
     <%= simple_form_for suggestions_path, method: :get do |f| %>
@@ -6,10 +7,16 @@
       <%= f.submit "Récents", class: "btn btn-primary"%>
     <% end %>
 
-    <%= render "shared/card_suggestion", suggestions: @suggestions%>
+
+  <div class="container">
+    <% @suggestions.each do |suggestion| %>
+      <%= link_to suggestion_path(suggestion) do %>
+        <%= render "shared/card_suggestion", suggestion: suggestion%>
+      <% end %>
+    <% end %>
 
     <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
   </div>
-
   <%= render "shared/btm_navbar" %>
+
 </div>

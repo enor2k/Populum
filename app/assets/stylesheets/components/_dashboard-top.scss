@@ -1,0 +1,30 @@
+.dashboard-top{
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 2px 2px 5px lightgray;
+
+
+  h1{
+    margin-bottom: 0px;
+  }
+
+  h5{
+    margin-bottom: 0px;
+  }
+
+  .left{
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 40px;
+  }
+
+  .logo{
+    width: 60px;
+    height: 60px;
+  }
+
+}

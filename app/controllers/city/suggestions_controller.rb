@@ -1,4 +1,4 @@
-class SuggestionsController < ApplicationController
+class City::SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
 
   def index
@@ -11,6 +11,26 @@ class SuggestionsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def dashboard
+    @suggestions = Suggestion.all
+    @suggestion = @suggestions.first
+    if params[:param].present?
+      @suggestion_focus = Suggestion.find(params[:param])
+    else
+      @suggestion_focus = Suggestion.first
+    end
+  end
+
+  def upvote
+    @suggestion.liked_by current_user
+    redirect_to city_suggestions_dashboard_path
+  end
+
+  def downvote
+    @suggestion.downvote_from current_user
+    redirect_to city_suggestions_dashboard_path
   end
 
   private
