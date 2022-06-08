@@ -99,4 +99,14 @@
       height: auto;
     }
   }
+
+  .chg-status {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .status:focus {
+    background-color: $blue
+  }
 }

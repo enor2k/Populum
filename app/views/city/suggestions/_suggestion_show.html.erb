@@ -20,12 +20,15 @@
       <% end %>
     </div>
   </div>
-  <div class="status">On y travaille !</div>
-    <% Suggestion::STATUSES.each do |status| %>
-      <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch, class:"btn btn-light", remote: true do %>
-        <%= status %>
-      <% end %>
-    <% end %>
+    <div class= "chg-status">
+      <% Suggestion::STATUSES.each do |status| %>
+            <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch,class:"btn status", remote: true do %>
+              <%= status %>
+            <% end %>
+        <% end %>
+    </div>
+
+    </select>
   <div class="boutons">
     <% if user_signed_in? && suggestion.user == current_user %>
       <%= link_to edit_suggestion_path(suggestion) do %>
