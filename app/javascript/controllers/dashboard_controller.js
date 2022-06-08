@@ -1,4 +1,3 @@
-import { offset } from '@popperjs/core';
 import Chart from 'chart.js/auto';
 import { Controller } from "stimulus"
 
