@@ -8,7 +8,6 @@
     <% end %>
 
 
-  <div class="container">
     <% @suggestions.each do |suggestion| %>
       <%= link_to suggestion_path(suggestion) do %>
         <%= render "shared/card_suggestion", suggestion: suggestion%>
@@ -17,6 +16,7 @@
 
     <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
   </div>
+
   <%= render "shared/btm_navbar" %>
 
 </div>
