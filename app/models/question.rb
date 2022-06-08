@@ -5,7 +5,7 @@ class Question < ApplicationRecord
 
   accepts_nested_attributes_for :options, allow_destroy: true
 
-  enum answer_type: { single_choice: "singlechoice", multiple_choice: "multiplechoice", long_answer: "long" }
+  enum answer_type: { choix_unique: "singlechoice", choix_multiple: "multiplechoice", question_ouverte: "long" }
 
   def self.answer_type_select
     answer_types.keys.map { |k| [k.titleize, k] }

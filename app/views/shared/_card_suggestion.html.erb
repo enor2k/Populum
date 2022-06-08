@@ -1,4 +1,4 @@
-<div class="card-suggestion" id="<%= suggestion.id %>">
+<div class="card-suggestion" id="suggestion-<%= suggestion.id %>">
   <div class="card-suggestion-left">
     <div class="card-suggestion-top">
       <%= suggestion.user.avatar.attached? ? (cl_image_tag suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')%>
@@ -11,21 +11,21 @@
   <div class= "votes">
 
     <% if defined?(namespace) %>
-      <%= link_to city_suggestion_upvote_path(suggestion) do %>
+      <%= link_to city_suggestion_upvote_path(suggestion), data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-up"></i>
       <% end %>
       <p><%= suggestion.weighted_score %></p>
-      <%= link_to city_suggestion_downvote_path(suggestion) do %>
+      <%= link_to city_suggestion_downvote_path(suggestion) , data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-down"></i>
       <% end %>
 
     <% else %>
 
-      <%= link_to suggestion_upvote_path(suggestion) do %>
+      <%= link_to suggestion_upvote_path(suggestion) , data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-up"></i>
       <% end %>
       <p><%= suggestion.weighted_score %></p>
-      <%= link_to suggestion_downvote_path(suggestion) do %>
+      <%= link_to suggestion_downvote_path(suggestion) , data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-down"></i>
       <% end %>
 
