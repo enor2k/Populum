@@ -1,0 +1,103 @@
+.main-right-dashboard{
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  .chart-div-main{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+    height: 90%;
+    width:40%
+  }
+
+  .chart{
+     max-width: 40%;
+    max-height: 100% ;
+  }
+
+}
+
+.right-btm{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 350px;
+  align-items: center;
+}
+
+.main-dashboard-card {
+  height: 100px;
+  width: auto;
+  box-shadow: 3px 3px 8px lightgray;
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: transform .1s;
+
+    h3{
+      font-size: 16px;
+      text-align: center;
+      font-family: 'Hind Siliguri', sans-serif;
+      margin-bottom: 0px;
+      color: $blue;
+    }
+
+    p{
+      font-family: 'Hind Siliguri', sans-serif;
+      font-weight: 700;
+      font-size: 46px;
+      margin-bottom: 0px;
+    }
+
+    i {
+      color: #158C7F;
+      font-size: 36px;
+    }
+
+    .down {
+      color: rgb(206, 6, 6);
+    }
+  }
+
+.main-card-box{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px 0px 30px 0px;
+}
+
+  .main-dashboard-card:hover{
+    box-shadow: 3px 3px 10px grey;
+    transform: scale(1.02);
+  }
+
+  h2{
+    font-family: 'Bebas Neue', cursive;
+    width: 217px;
+    height: 32px;
+    left: 220px;
+    top: 122px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+
+.main-bottom-dashboard{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: -135px 0px 30px 0px;
+}
+
+.main-mapbox{
+  width: 30%;
+  max-height: 100%;
+}

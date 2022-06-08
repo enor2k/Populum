@@ -9,10 +9,43 @@
       <%= render 'city/shared/left_navbar' %>
     </div>
 
-    <div class="right-dashboard">
+    <div class="main-right-dashboard">
+      <h2>Les chiffres de la semaine</h2>
+      <div class="main-card-box">
+        <div class="main-dashboard-card">
+          <h3>NOUVEAUX INSCRITS</h3>
+            <p>21 <i class="fa-solid fa-arrow-trend-up"></i></p>
+        </div>
+        <div class="main-dashboard-card">
+          <h3>NOUVELLES PROPOSITIONS</h3>
+          <p>64 <i class="fa-solid fa-arrow-trend-up"></i></p>
+        </div>
+        <div class="main-dashboard-card">
+          <h3>NOMBRE DE VOTES</h3>
+          <p>253 <i class="fa-solid fa-arrow-trend-up"></i></p>
+        </div>
+        <div class="main-dashboard-card">
+          <h3>TAUX DE SATISFACTION</h3>
+          <p>71,8% <i class="fa-solid fa-arrow-trend-down down"></i></p>
+        </div>
+      </div>
+
+      <div class="right-btm">
+
+          <div class="chart-div-main" data-controller="maincharts">
+            <canvas class="chart" data-maincharts-target="charttwo" width="200px" height="100px"></canvas>
+            <canvas class="chart" data-maincharts-target="chartone" width="50px" height="100px"></canvas>
+          </div>
+
+          <div class="main-mapbox">
+            <%= render "shared/mapbox", suggestions: @suggestions %>
+          </div>
+
+      </div>
+
+
+        </div>
+
     </div>
-
   </div>
-
-
 </div>
