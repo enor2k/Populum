@@ -58,15 +58,6 @@ class SuggestionsController < ApplicationController
     redirect_to suggestions_path(anchor: "suggestion-#{@suggestion.id}")
   end
 
-  def change_status
-    @suggestion = Suggestion.find(params[:id])
-
-    if params[:status].present?
-      @suggestion.update(status: params[:status])
-    end
-    redirect_to suggestions_path(anchor: "suggestion-#{@suggestion.id}"), notice: "Status updated to #{@suggestion.status}"
-  end
-
   private
 
   def suggestion_params

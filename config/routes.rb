@@ -32,7 +32,11 @@ Rails.application.routes.draw do
 
   namespace :city do
     resources :surveys, except: [:destroy]
-    resources :suggestions, only: %i[index update]
+    resources :suggestions, only: %i[index update] do
+      member do
+        patch :change_status
+      end
+    end
     get 'suggestions/dashboard', to: 'suggestions#dashboard', as: 'suggestions_dashboard'
 
     get 'survey/:id/display', to: 'surveys#display', as: 'survey_display'
