@@ -2,16 +2,20 @@
 <div class="show-div-city">
   <div class="container">
     <div class="back">
-      <% if request.referer ==  "http://localhost:3000/suggestions/new"%>
-        <%= link_to user_path(current_user) do %>
-          <i class="fa-solid fa-angle-left"></i>
-        <% end %>
-      <% else %>
-        <%= link_to url_for(:back) do %>
-          <i class="fa-solid fa-angle-left"></i>
-        <% end %>
-      <% end %>
+      <%# <% if request.referer ==  "http://localhost:3000/suggestions/new"%>
+        <%# <%= link_to user_path(current_user) do %>
+          <%# <i class="fa-solid fa-angle-left"></i> %>
+        <%# <% end %>
+      <%# <% else %>
+        <%# <%= link_to url_for(:back) do %>
+          <%# <i class="fa-solid fa-angle-left"></i> %>
+        <%# <% end %>
+      <%# <% end %>
+    <%= link_to suggestions_path do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
     </div>
+
 
     <div class="card-suggestion-show">
       <div class="card-suggestion-top">

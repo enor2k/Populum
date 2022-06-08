@@ -49,7 +49,6 @@ body {
 .sticky-bottom{
   position: sticky;
   top: 0px;
-  background-color: red;
 }
 
 .do-not-remove {
@@ -61,4 +60,8 @@ body {
   font-weight: 700;
   color: darkgrey;
   font-style: italic;
+}
+
+.light-grey{
+  color: lightgray;
 }

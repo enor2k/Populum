@@ -11,5 +11,8 @@ class User < ApplicationRecord
   has_many :suggestion_votes, dependent: :destroy
   has_many :comment_votes, dependent: :destroy
 
+  acts_as_voter
+
+
   GENDERS = ["femme", "homme", "non-binaire"]
 end
