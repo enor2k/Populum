@@ -8,7 +8,6 @@
     <% end %>
 
 
-  <div class="container">
     <% @suggestions.each do |suggestion| %>
       <%= link_to suggestion_path(suggestion) do %>
         <%= render "shared/card_suggestion", suggestion: suggestion%>
