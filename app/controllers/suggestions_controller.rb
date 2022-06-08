@@ -1,8 +1,16 @@
 class SuggestionsController < ApplicationController
   before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
 
+
   def index
-    @suggestions = Suggestion.order(created_at: :desc)
+    # raise
+    if params[:commit].present? && params[:commit] == "Populaires"
+      @suggestions = Suggestion.order(cached_votes_total: :desc)
+    elsif params[:commit].present? && params[:commit] == "Récents"
+      @suggestions = Suggestion.order(created_at: :desc)
+    else
+      @suggestions = Suggestion.order(created_at: :desc)
+    end
   end
 
   def show

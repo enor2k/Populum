@@ -1,6 +1,12 @@
 <div class="full-screen">
 
   <%= render "shared/top_header", titre: 'Suggestions'%>
+  <div class="container">
+    <%= simple_form_for suggestions_path, method: :get do |f| %>
+      <%= f.submit "Populaires", class: "btn btn-primary"%>
+      <%= f.submit "Récents", class: "btn btn-primary"%>
+    <% end %>
+
 
   <div class="container">
     <% @suggestions.each do |suggestion| %>

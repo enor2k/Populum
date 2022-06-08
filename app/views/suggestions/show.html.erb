@@ -1,11 +1,17 @@
+
 <div class="show-div-city">
   <div class="container">
     <div class="back">
-      <%= link_to url_for(:back) do %>
-        <i class="fa-solid fa-angle-left"></i>
+      <% if request.referer ==  "http://localhost:3000/suggestions/new"%>
+        <%= link_to user_path(current_user) do %>
+          <i class="fa-solid fa-angle-left"></i>
+        <% end %>
+      <% else %>
+        <%= link_to url_for(:back) do %>
+          <i class="fa-solid fa-angle-left"></i>
+        <% end %>
       <% end %>
     </div>
-
 
     <div class="card-suggestion-show">
       <div class="card-suggestion-top">
@@ -29,7 +35,14 @@
           <% end %>
         </div>
       </div>
-      <div class="status">On y travaille !</div>
+      <% case @suggestion.status %>
+        <% when 'pending' %>
+        <% when 'accepted' %>
+          </p><span class="status"> On y travaille !</span> </p>
+        <% when 'done' %>
+          </p><span class="status"> Déjà fait !</span> </p>
+        <% end %>
+
       <div class="boutons">
         <% if user_signed_in? && @suggestion.user == current_user %>
           <%= link_to edit_suggestion_path(@suggestion) do %>
@@ -53,15 +66,16 @@
         <%= render "shared/card_comment", comment: comment%>
       <% end %>
     <% end %>
+
   </div>
 
 
-  <%= simple_form_for([ @suggestion, Comment.new ], html: { class: "fixed-bottom comment-form"}) do |f| %>
-    <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
-    <button type="submit">
-      <i class="fa-solid fa-paper-plane"></i>
-  </button>
-  <% end %>
+    <%= simple_form_for([ @suggestion, Comment.new ], html: { class: "fixed-bottom comment-form"}) do |f| %>
+      <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
+      <button type="submit">
+        <i class="fa-solid fa-paper-plane"></i>
+    </button>
+    <% end %>
+  </div>
 </div>
-
 <h6 class="do-not-remove">NE PAS SUPPRIMER</h6>

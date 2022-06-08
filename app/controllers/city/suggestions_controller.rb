@@ -22,6 +22,15 @@ class City::SuggestionsController < ApplicationController
     redirect_to city_suggestions_dashboard_path
   end
 
+  def change_status
+    @suggestion = Suggestion.find(params[:id])
+
+    if params[:status].present? && Suggestion::STATUSES.include?(params[:status])
+      @suggestion.update(status: params[:status])
+    end
+    redirect_to("/city/suggestions/dashboard/?&param=#{@comment.suggestion_id}")
+  end
+
   private
 
   def suggestion_params
