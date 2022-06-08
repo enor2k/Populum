@@ -2,7 +2,8 @@ class City::SurveysController < ApplicationController
   before_action :set_survey, only: %i[edit show update respond archive display]
 
   def index
-    @surveys = Survey.where(:active? == true)
+    @active_surveys = Survey.where(active?: true)
+    @inactive_surveys = Survey.where(active?: false)
   end
 
   def show

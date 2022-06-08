@@ -32,7 +32,7 @@ Rails.application.routes.draw do
 
   namespace :city do
     resources :surveys, except: [:destroy]
-    resources :suggestions, only: %i[index update]
+    resources :comments, only: %i[create destroy]
     get 'suggestions/dashboard', to: 'suggestions#dashboard', as: 'suggestions_dashboard'
 
     get 'survey/:id/display', to: 'surveys#display', as: 'survey_display'
