@@ -46,14 +46,14 @@
   <h3>Commentaires:</h3>
 
   <% suggestion.comments.each do |comment| %>
-
     <%= render "shared/card_comment", comment: comment, namespace: 'city' %>
   <% end %>
 <% end %>
 
 
-<%= simple_form_for([ suggestion, Comment.new ], html: { class: "comment-form-dashboard"}) do |f| %>
+<%= simple_form_for([ suggestion, comment ], url: city_comments_path, html: { class: "comment-form-dashboard"}) do |f| %>
   <%= f.input :content, as: :text, label:false, placeholder:"Commentez..."%>
+  <%= f.input :suggestion_id, as: :hidden, input_html: { value: suggestion.id } %>
   <button type="submit">
     <i class="fa-solid fa-paper-plane"></i>
   </button>

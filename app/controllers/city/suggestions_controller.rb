@@ -1,21 +1,10 @@
 class City::SuggestionsController < ApplicationController
-  before_action :set_suggestion, only: %i[destroy edit show update upvote downvote]
-
-  def index
-    @suggestions = Suggestion.all
-  end
-
-  def update
-    if @suggestion.update(suggestion_params)
-      redirect_to user_path(current_user)
-    else
-      render :edit
-    end
-  end
+  before_action :set_suggestion, only: %i[upvote downvote]
 
   def dashboard
-    @suggestions = Suggestion.all
+    @suggestions = Suggestion.order(cached_votes_score: :desc).limit(5)
     @suggestion = @suggestions.first
+    @comment = Comment.new
     if params[:param].present?
       @suggestion_focus = Suggestion.find(params[:param])
     else

@@ -3,41 +3,29 @@ class City::CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @suggestion = Suggestion.find(params[:suggestion_id])
+    @suggestion = Suggestion.find(params[:comment][:suggestion_id])
     @comment.suggestion = @suggestion
     @comment.user = current_user
     if @comment.save
-      redirect_to suggestion_path(@suggestion)
+      redirect_to("/city/suggestions/dashboard/?&param=#{@suggestion.id}")
     else
       render :new
     end
   end
 
-  def edit
-    @suggestion = Suggestion.find(params[:suggestion_id])
-  end
-
-  def update
-    if @comment.update(comment_params)
-      redirect_to suggestion_path(Suggestion.find(params[:suggestion_id]))
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @comment.destroy
-    redirect_to suggestion_path(Suggestion.find(@comment.suggestion_id))
+    redirect_to("/city/suggestions/dashboard/?&param=#{@comment.suggestion_id}")
   end
 
   def upvote
     @comment.liked_by current_user
-    redirect_to city_suggestions_dashboard_path
+    redirect_to("/city/suggestions/dashboard/?&param=#{@comment.suggestion_id}")
   end
 
   def downvote
     @comment.downvote_from current_user
-    redirect_to city_suggestions_dashboard_path
+    redirect_to("/city/suggestions/dashboard/?&param=#{@comment.suggestion_id}")
   end
 
   private

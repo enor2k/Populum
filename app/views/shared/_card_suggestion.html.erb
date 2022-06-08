@@ -1,4 +1,4 @@
-<div class="card-suggestion" data-slack-essai-value="<%= suggestion.id %>">
+<div class="card-suggestion" id="<%= suggestion.id %>">
   <div class="card-suggestion-left">
     <div class="card-suggestion-top">
       <%= suggestion.user.avatar.attached? ? (cl_image_tag suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')%>

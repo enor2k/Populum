@@ -37,6 +37,8 @@ Rails.application.routes.draw do
         patch :change_status
       end
     end
+    resources :comments, only: %i[create destroy]
+
     get 'suggestions/dashboard', to: 'suggestions#dashboard', as: 'suggestions_dashboard'
 
     get 'survey/:id/display', to: 'surveys#display', as: 'survey_display'
