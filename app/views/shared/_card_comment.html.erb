@@ -1,4 +1,4 @@
-<div class="card-comment mb-3">
+<div class="card-comment mb-3" id="comment-<%= comment.id %>">
   <div class="card-comment-left">
     <div class="card-comment-top">
       <%= comment.user.avatar.attached? ? (cl_image_tag comment.user.avatar.key, class: 'avatar') : (image_tag "avatar.png", class: 'avatar') %>
@@ -7,14 +7,21 @@
     <div class="card-comment-body">
       <p> <%= comment.content %> </p>
       <div class="card-comment-btns">
+
+
         <% if user_signed_in? && comment.user == current_user %>
-          <%= link_to  edit_suggestion_comment_path(@suggestion, comment) do %>
-          <i class="fa-solid fa-pen-to-square"></i>
-        <% end %>
-        <%= link_to comment_path(comment), method: :delete do %>
-          <i class="fa-solid fa-trash-can"></i>
+
+          <% unless defined?(namespace) %>
+            <%= link_to  edit_suggestion_comment_path(@suggestion, comment) do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            <%= link_to comment_path(comment), method: :delete do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
           <% end %>
+
         <% end %>
+
       </div>
     </div>
   </div>
