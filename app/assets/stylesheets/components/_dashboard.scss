@@ -16,7 +16,7 @@
 .right-dashboard{
   display: flex;
   justify-content: space-around;
-  flex-shrink: 1000 ;
+  width: 100%;
   padding-top: 20px;
 
   .center-dashboard{
@@ -37,6 +37,6 @@
     width: 50%;
     height: 100%;
     overflow: scroll;
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
   }
 }
