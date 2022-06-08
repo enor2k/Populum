@@ -1,9 +1,9 @@
 <%= simple_form_for [:city, @survey], html:{'data-controller':'flatpickr'} do |form| %>
   <div class="field">
-    <%= form.input :title %>
-    <%= form.input :overview %>
-    <%= form.input :start_date, as: :date, html5: true, input_html:{ data: {'flatpickr-target':"startdate", 'action':"click->flatpickr#startdatepick"} } %>
-    <%= form.input :end_date, as: :date, html5: true, input_html:{ data: {'flatpickr-target':"enddate", 'action':"click->flatpickr#enddatepick"} } %>
+    <%= form.input :title, label:"Titre du sondage", placeholder:"..." %>
+    <%= form.input :overview, label:"Résumé du sondage", placeholder:"..." %>
+    <%= form.input :start_date, as: :date, html5: true, label:"Date de début", input_html:{ data: {'flatpickr-target':"startdate", 'action':"click->flatpickr#startdatepick"} } %>
+    <%= form.input :end_date, as: :date, html5: true, label:"Date de fin", input_html:{ data: {'flatpickr-target':"enddate", 'action':"click->flatpickr#enddatepick"} } %>
   </div>
 
   <div data-controller="nested-form" data-nested-form-index-value='QUESTION_RECORD'>
@@ -19,10 +19,10 @@
 
     <div class="actions">
       <div data-nested-form-target="add_item" class='text-center'>
-        <%= link_to "Add Question", "#", data: { action: "nested-form#add_association" }, class:"btn btn-light mb-2" %>
+        <%= link_to "Ajouter une question", "#", data: { action: "nested-form#add_association" }, class:"btn btn-outline-primary mb-2" %>
       </div>
       <div class="text-center">
-        <%= form.submit class:"btn btn-secondary" %>
+        <%= form.button :submit, "Valider le sondage", class:"btn btn-primary" %>
       </div>
     </div>
   </div>

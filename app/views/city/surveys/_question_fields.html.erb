@@ -8,13 +8,12 @@
   </div>
 
   <div class='form-group'>
-    <small>
-      <%= link_to "Supprimer question", "#", data: { action: "click->nested-form#remove_association" } %>
-    </small>
     <%= form.hidden_field :_destroy %>
     <%= form.text_field :title, placeholder: 'Question', class: 'form-control' %>
-    <hr>
     <br>
+    <br>
+    <%= link_to "Supprimer question", "#", class:"btn btn-outline-secondary m-2", data: { action: "click->nested-form#remove_association" } %>
+    <hr>
   </div>
 
   <div data-controller="nested-form" data-dynamic-select-target='choice' data-nested-form-index-value='ANSWER_RECORD'>
@@ -23,6 +22,7 @@
 
         <%= render 'option_fields', form: option %>
       <% end %>
+
     </template>
 
     <%= form.fields_for :options do |option| %>
