@@ -10,8 +10,7 @@
   <div class='form-group'>
     <%= form.hidden_field :_destroy %>
     <%= form.text_field :title, placeholder: 'Question', class: 'form-control' %>
-    <br>
-    <br>
+
     <%= link_to "Supprimer question", "#", class:"btn btn-outline-secondary m-2", data: { action: "click->nested-form#remove_association" } %>
     <hr>
   </div>
@@ -30,7 +29,7 @@
     <% end %>
 
     <div data-nested-form-target="add_item">
-      <%= link_to "Ajouter une option", "#", data: { action: "nested-form#add_association" }, class: 'btn btn-light' %>
+      <%= link_to "Ajouter une option", "#", data: { action: "nested-form#add_association" }, class: 'btn btn-outline-secondary m-2' %>
     </div>
   </div>
 
