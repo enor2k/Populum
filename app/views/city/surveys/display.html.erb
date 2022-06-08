@@ -20,14 +20,6 @@
           <h3>Age moyen des participants:</h3>
           <span class="highlight"><%= @survey.mean_user_age %></span>
         </div>
-        <div class="dashboard-card">
-          <h3>Participation relative au dernier sondage:</h3>
-          <% if @survey.id == 1 %>
-            <span class="highlight"> + 50% </span>
-          <% else %>
-          <p> + <%= (@survey.questions.first.answers.count - Survey.find(@survey.id - 1).questions.first.answers.countSurvey.find(@survey.id - 1).questions.first.answers.count) %> </p>
-          <% end %>
-        </div>
       </div>
 
       <div class="dashboard-grid mt-5">
