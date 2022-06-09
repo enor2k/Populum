@@ -12,6 +12,10 @@
   align-items: left;
   width: 100%;
 
+  .date {
+  font-size: 12px;
+  }
+
   h5 {
     margin: 0px;
   }
@@ -19,6 +23,7 @@
   p {
     margin: 0px;
   }
+
 
   .votes {
     color: $lighter-green;

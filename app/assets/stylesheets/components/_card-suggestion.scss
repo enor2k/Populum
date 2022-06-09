@@ -10,6 +10,10 @@
   justify-content: space-between;
   align-items: center;
 
+  .date {
+    font-size: 12px;
+  }
+
   h5 {
     margin: 0px 0px 0px 10px;
   }
@@ -58,6 +62,10 @@
 
   button{
     border: none;
-    background-color: none;
+    background: none;
+    color: $blue;
+  }
+  button:disabled{
+    color: lightgrey;
   }
 }
