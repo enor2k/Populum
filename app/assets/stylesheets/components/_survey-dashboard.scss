@@ -56,16 +56,23 @@
     }
 
     p{
-      background-color: red;
-      padding: 12px;
       font-family: 'Hind Siliguri', sans-serif;
       font-weight: 700;
       font-size: 46px;
       margin-bottom: 0px;
-      color: black;
+    }
+
+    i {
+      color: #158C7F;
+      font-size: 36px;
+    }
+
+    .down {
+      color: rgb(206, 6, 6);
     }
 
   }
+
   .dashboard-card:hover{
     box-shadow: 3px 3px 10px grey;
     transform: scale(1.02);
