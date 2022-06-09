@@ -20,12 +20,20 @@
       <% end %>
     </div>
   </div>
+
     <div class= "chg-status">
       <% Suggestion::STATUSES.each do |status| %>
-            <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch,class:"btn status", remote: true do %>
-              <%= status %>
-            <% end %>
+        <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch, class:"btn #{status == @suggestion.status ? "status" : "non-status" }" , remote: true do %>
+          <% case status %>
+            <% when 'pending' %>
+              <p>En attente</p>
+            <% when 'accepted' %>
+              </p>On y travaille !</p>
+            <% when 'done' %>
+              </p>C'est fait !</p>
+          <% end %>
         <% end %>
+      <% end %>
     </div>
 
     </select>

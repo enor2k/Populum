@@ -106,7 +106,14 @@
 
   }
 
-  .status:focus {
-    background-color: $blue
+  .non-status{
+    font-size: 12px;
+    padding: 4px 15px 4px 15px;
+    background-color: lightgray;
+    border-radius: 20px;
+    margin: 20px 0px 0px 30px;
+    width:fit-content;
+
   }
+
 }
