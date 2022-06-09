@@ -1,3 +1,6 @@
+<%= render "shared/top_header", titre: "Réponse sondage"%>
+
+
 <div class="container">
   <div class="back">
     <%= link_to root_path do %>
@@ -5,7 +8,7 @@
     <% end %>
   </div>
 
-  <h1> Répondre au sondage <%= @survey.title %> </h1>
+  <h1> <%= @survey.title %> </h1>
   <hr>
   <span class="diplay-5">Date de début: <%= @survey.start_date %> </span> ____ <span class="diplay-5">Date de fin: <%= @survey.end_date %> </span>
   <br>
