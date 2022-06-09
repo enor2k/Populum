@@ -23,7 +23,7 @@
   <div class="d-flex justify-content-center mt-4">
     <div class= "chg-status" data-controller='changestatus'>
       <% Suggestion::STATUSES.each_with_index do |status, index| %>
-        <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch, data:{'changestatus-target':"btn#{index}", 'action':'click->changestatus#activate'}, class:"btn status-btn", remote: true do %>
+        <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch, data:{'changestatus-target':"btn#{index}", 'action':'click->changestatus#activate'}, class:"btn status-btn #{status == @suggestion.status ? "status-btn-active" : ""}", remote: true do %>
           <% case status %>
             <% when 'pending' %>
               <%= "En attente"%>
