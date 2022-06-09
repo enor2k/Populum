@@ -15,7 +15,7 @@
   }
 
   h5 {
-    margin: 0px 0px 0px 10px;
+    margin: 0px;
   }
 
   p {
@@ -38,6 +38,11 @@
       font-size: 16px;
     }
   }
+
+  .card-suggestion-user-info{
+    margin-left: 10px;
+  }
+
   .card-suggestion-top {
     display: flex;
     justify-content: left;
