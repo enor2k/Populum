@@ -19,7 +19,7 @@
     <hr>
     <br>
 
-    <%= form_for [@survey] do |f| %>
+    <%= simple_form_for [@survey, Answer.new],  do |f| %>
 
       <% @survey.questions.each_with_index do |question, index| %>
 
