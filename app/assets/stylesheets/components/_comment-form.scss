@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100vw;
 
-  textarea{
+  #comment_content{
     height:38px;
     margin:0px;
     flex-grow: 1;
@@ -31,14 +31,11 @@
   justify-content: center;
   width: 100%;
 
-  .comment_content{
-    flex-grow: 1;
-  }
-
-  textarea{
+  #comment_content{
     height:38px;
     margin:0px;
     flex-grow: 1;
+    width: 90%;
     background-color: white;
   }
 
