@@ -19,37 +19,35 @@
     <hr>
     <br>
 
-    <ul>
+    <%= form_for [@survey] do |f| %>
+
       <% @survey.questions.each_with_index do |question, index| %>
-        <li>
-          Question n°<%= index + 1 %>: <%= question.title %>
-          <br>
-        </li>
+
+        Question n°<%= index + 1 %>: <%= question.title %>
         <% case question.answer_type %>
         <% when 'single_choice' %>
-          <%= simple_form_for [question, answer = Answer.new] do |f| %>
+          <%= f.simple_fields_for :question do |q|%>
             <% question.options.each do |option| %>
-              <%= radio_button_tag 'option_id', option.id %>
-              <%= option.title %>
+              <%= q.radio_button_tag 'option_id', option.id %>
+              <%= q.option.title %>
             <% end %>
-            <%= f.button :submit, "Valider", class:"m-2 btn btn-outline-primary" %>
           <% end %>
         <% when 'multiple_choice' %>
-          <%= simple_form_for [question, answer = Answer.new] do |f| %>
-              <% question.options.each do |option| %>
-                <%= check_box_tag 'option_id', option.id %>
-                <%= option.title %>
-              <% end %>
-            <%= f.button :submit, "Valider", class:"m-2 btn btn-outline-primary" %>
+          <%= f.simple_fields_for :question do |q|%>
+            <% question.options.each do |option| %>
+              <%= q.check_box_tag 'option_id', option.id %>
+              <%= q.option.title %>
             <% end %>
+          <% end %>
         <% when 'long_answer' %>
-          <%= simple_form_for [question, Answer.new] do |f| %>
-            <%= f.input :answer_fields %>
-            <%= f.button :submit, "Valider", class:"m-2 btn btn-outline-primary" %>
+          <%= f.simple_fields_for :question do |q|%>
+            <%= q.input :answer_fields %>
           <% end %>
         <% end %>
-        <br>
       <% end %>
+      <br>
+    <%= f.button :submit, "Valider", class:"m-2 btn btn-outline-primary" %>
+    <% end %>
     </ul>
   </div>
 </div>
