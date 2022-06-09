@@ -13,16 +13,16 @@
 
     <div class="card-box">
       <div class="dashboard-card">
-        <h3>Nombre de sondages réalisés avec succès:</h3>
-        <span class="highlight"> <%= Survey.count + 62 %> </span>
+        <h3>NOMBRE DE SONDAGES</h3>
+          <p><%= Survey.count + 62 %> <i class="fa-solid fa-arrow-trend-up"></i></p>
       </div>
       <div class="dashboard-card">
-        <h3>Nombre moyen de réponses</h3>
-        <span class="highlight"> 3276 </span>
+        <h3>NOMBRE DE RÉPONSES</h3>
+        <p>426 <i class="fa-solid fa-arrow-trend-up"></i></p>
       </div>
       <div class="dashboard-card">
-        <h3> Taux moyen de satisfaction </h3>
-        <span class="highlight"> 84 % </span>
+        <h3>TAUX DE SATISFACTION</h3>
+        <p>71,8% <i class="fa-solid fa-arrow-trend-down down"></i></p>
       </div>
     </div>
 
@@ -30,7 +30,7 @@
     <br>
     <br>
 
-      <h3>Sondages actifs :</h3>
+      <h2>Sondages actifs :</h2>
 
       <% @active_surveys.each do |survey| %>
         <%= link_to city_survey_path(survey) do %>
@@ -55,7 +55,7 @@
       <br>
       <br>
 
-      <h3>Sondages inactifs :</h3>
+      <h2>Sondages inactifs :</h2>
 
       <% @inactive_surveys.each do |survey| %>
         <%= link_to city_survey_path(survey) do %>
