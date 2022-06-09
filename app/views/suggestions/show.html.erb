@@ -30,13 +30,27 @@
             <p class= "text"><%= @suggestion.content%></p>
         </div>
         <div class= "votes">
-          <%= link_to suggestion_upvote_path(@suggestion) do %>
-            <i class="fa-solid fa-angle-up"></i>
+          <% if defined?(namespace) && user_signed_in? %>
+
+            <%= link_to city_suggestion_upvote_path(@suggestion), class:"", data: { turbolinks: false } do %>
+              <i class="fa-solid fa-angle-up"></i>
+            <% end %>
+            <p><%= @suggestion.cached_weighted_score %></p>
+            <%= link_to city_suggestion_downvote_path(@suggestion), class:'', data: { turbolinks: false } do %>
+              <i class="fa-solid fa-angle-down"></i>
+            <% end %>
+
+          <% elsif user_signed_in? %>
+            <%= button_to suggestion_upvote_path(@suggestion), disabled: (current_user.voted_for? @suggestion), method: :get, data: { turbolinks: false } do %>
+              <i class="fa-solid fa-angle-up"></i>
+            <% end %>
+            <p><%= @suggestion.cached_weighted_score %></p>
+            <%= button_to suggestion_downvote_path(@suggestion), disabled: (current_user.voted_for? @suggestion), method: :get, data: { turbolinks: false } do %>
+              <i class="fa-solid fa-angle-down"></i>
+            <% end %>
+
           <% end %>
-          <p><%= @suggestion.weighted_score %></p>
-          <%= link_to suggestion_downvote_path(@suggestion) do %>
-            <i class="fa-solid fa-angle-down"></i>
-          <% end %>
+
         </div>
       </div>
       <% case @suggestion.status %>

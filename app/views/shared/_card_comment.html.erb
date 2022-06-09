@@ -26,22 +26,22 @@
     </div>
   </div>
   <div class= "votes">
-    <% if defined?(namespace) %>
-      <%= link_to city_comment_upvote_path(comment) do %>
+    <% if defined?(namespace) && user_signed_in? %>
+
+      <%= link_to city_comment_upvote_path(comment), class:"", data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-up"></i>
       <% end %>
       <p><%= comment.weighted_score %></p>
-      <%= link_to city_comment_downvote_path(comment) do %>
+      <%= link_to city_comment_downvote_path(comment), class:'', data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-down"></i>
       <% end %>
 
-    <% else %>
-
-      <%= link_to comment_upvote_path(comment) do %>
+    <% elsif user_signed_in? %>
+      <%= button_to comment_upvote_path(comment), disabled: (current_user.voted_for? comment), method: :get, data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-up"></i>
       <% end %>
       <p><%= comment.weighted_score %></p>
-      <%= link_to comment_downvote_path(comment) do %>
+      <%= button_to comment_downvote_path(comment), disabled: (current_user.voted_for? comment), method: :get, data: { turbolinks: false } do %>
         <i class="fa-solid fa-angle-down"></i>
       <% end %>
 

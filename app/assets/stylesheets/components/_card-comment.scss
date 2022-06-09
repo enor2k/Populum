@@ -41,4 +41,13 @@
   .card-comment-left{
     flex-grow: 1;
   }
+
+  button{
+    border: none;
+    background: none;
+    color: $blue;
+  }
+  button:disabled{
+    color: lightgrey;
+  }
 }
