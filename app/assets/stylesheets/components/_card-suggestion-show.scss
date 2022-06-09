@@ -3,7 +3,8 @@
   background: $beige;
   margin-bottom: 15px;
   border-radius: $border-radius;
-  height: auto;
+  height:auto;
+  max-height: 100%;
   padding: 30px 0px 30px 0px;
   box-shadow: 1px 1px 4px lightgray;
   display: flex;
@@ -113,5 +114,15 @@
 
   .status:focus {
     background-color: $blue
+  }
+
+  button{
+    border: none;
+    background: none;
+    color: $blue;
+    font-size: 25px;
+  }
+  button:disabled{
+    color: lightgrey;
   }
 }
