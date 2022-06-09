@@ -2,10 +2,14 @@
 
   <%= render "shared/top_header", titre: 'Suggestions'%>
   <div class="container">
-    <%= simple_form_for suggestions_path, method: :get do |f| %>
-      <%= f.submit "Populaires", class: "btn btn-primary"%>
-      <%= f.submit "Récents", class: "btn btn-primary"%>
-    <% end %>
+    <div class="d-flex justify-content-center">
+      <div class="filtres">
+        <%= simple_form_for suggestions_path, method: :get do |f| %>
+          <%= f.submit "Populaires", class: "filtre-btn #{ (params[:commit].present? && params[:commit] == "Récentes") ? "" : "filtre-btn-active"}"%>
+          <%= f.submit "Récentes", class: "filtre-btn #{ (params[:commit].present? && params[:commit] == "Récentes") ? "filtre-btn-active" : ""}"%>
+        <% end %>
+      </div>
+    </div>
 
 
     <% @suggestions.each do |suggestion| %>
@@ -16,6 +20,5 @@
 
     <%= link_to image_tag("add_btn.png"), new_suggestion_path, id:"add-btn" %>
   </div>
-
 </div>
-  <%= render "shared/btm_navbar" %>
+<%= render "shared/btm_navbar" %>

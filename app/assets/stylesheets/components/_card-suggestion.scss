@@ -58,6 +58,10 @@
 
   button{
     border: none;
-    background-color: none;
+    background: none;
+    color: $blue;
+  }
+  button:disabled{
+    color: lightgrey;
   }
 }
