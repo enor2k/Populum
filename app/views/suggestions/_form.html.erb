@@ -6,29 +6,15 @@
     <% end %>
   </div>
 
-  <%= simple_form_for @suggestion, html: {class:"form-mobile"}, data: { suggests_modal_target: "form", action: "submit->suggests-modal#send" } do |f| %>
+  <%= simple_form_for @suggestion, html: {class:"form-mobile"} do |f| %>
     <%= f.input :title, label:"Titre" %>
     <hr>
     <%= f.input :content, label:"Contenu" %>
     <%= f.input :address, label:"Adresse" %>
     <%= f.input :photo, as: :file %>
-    <%= f.submit "Valider", class: "btn btn-primary w-100 mt-4"%>
-
+  <%= f.submit "Valider", class: "btn btn-primary w-100 mt-4"%>
   <% end %>
 
   <br>
-
-  <!-- Modal -->
-  <div class="modal fade" id="SuggestsModal" tabindex="-1" aria-labelledby="OrderModalLabel">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body text-center" data-orders-modal-target="items">
-            <h1>Votre suggestion à bien été prise en compte !</h1>
-
-            <button type="button" class="btn btn-lg" style="background-color: #038C7F;color:white;border-radius: 20px;" id="submitSuggest" data-bs-dismiss="modal">Ok</button>
-          </div>
-        </div>
-      </div>
-  </div>
 
 </div>
