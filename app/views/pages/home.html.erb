@@ -7,7 +7,7 @@
       <div class="notif">
         <h2 class="ml-4">Sondage en cours!</h2>
         <% Survey.where(active?: true).each do |sondage| %>
-        <%= link_to "Répondre", survey_respond_path(sondage), class:"btn btn-primary m-4" %>,
+        <%= link_to "Répondre", survey_respond_path(sondage), class:"btn btn-primary m-4" %>
         <% end %>
       </div>
     <% end %>
