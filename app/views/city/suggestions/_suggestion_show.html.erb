@@ -20,21 +20,22 @@
       <% end %>
     </div>
   </div>
-
-    <div class= "chg-status">
-      <% Suggestion::STATUSES.each do |status| %>
-        <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch, class:"btn #{status == @suggestion.status ? "status" : "non-status" }" , remote: true do %>
+  <div class="d-flex justify-content-center mt-4">
+    <div class= "chg-status" data-controller='changestatus'>
+      <% Suggestion::STATUSES.each_with_index do |status, index| %>
+        <%= link_to change_status_city_suggestion_path(suggestion, status: status), method: :patch, data:{'changestatus-target':"btn#{index}", 'action':'click->changestatus#activate'}, class:"btn status-btn", remote: true do %>
           <% case status %>
             <% when 'pending' %>
-              <p>En attente</p>
+              <%= "En attente"%>
             <% when 'accepted' %>
-              </p>On y travaille !</p>
+              <%= "On y travaille !"%>
             <% when 'done' %>
-              </p>C'est fait !</p>
+              <%= "C'est fait !"%>
           <% end %>
         <% end %>
       <% end %>
     </div>
+  </div>
 
     </select>
   <div class="boutons">

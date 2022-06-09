@@ -106,19 +106,31 @@
   }
 
   .chg-status {
-    display: flex;
-    justify-content: center;
+    background-color: $green;
+    border-radius: 8px;
+    width: fit-content;
+
+
+    .status-btn:disabled{
+      border: none;
+      background: none;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    .status-btn:hover{
+      background-color: $blue;
+      font-weight: 700;
+      color: white;
+    }
+
+    .status-btn-active{
+      background-color: $blue;
+      font-weight: 700;
+      color: white;
+    }
 
   }
 
-  .non-status{
-    font-size: 12px;
-    padding: 4px 15px 4px 15px;
-    background-color: lightgray;
-    border-radius: 20px;
-    margin: 20px 0px 0px 30px;
-    width:fit-content;
-
-  }
 
 }
