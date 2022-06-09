@@ -132,4 +132,14 @@
     }
 
   }
+
+  button{
+    border: none;
+    background: none;
+    color: $blue;
+    font-size: 25px;
+  }
+  button:disabled{
+    color: lightgrey;
+  }
 }
