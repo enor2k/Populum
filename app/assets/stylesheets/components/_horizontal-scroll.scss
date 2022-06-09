@@ -2,11 +2,13 @@
   display: flex;
   overflow-x:scroll;
   margin-bottom: 20px;
+  height: 200px;
 
   .card-suggestion {
     min-width: 70vw;
     margin-left: 0px;
     padding: 14px 1px 11px 18px;
+    height: 90%;
 
     h5{
       font-size: 18px;
