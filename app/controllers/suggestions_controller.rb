@@ -4,7 +4,7 @@ class SuggestionsController < ApplicationController
   def index
     if params[:commit].present? && params[:commit] == "Populaires"
       @suggestions = Suggestion.order(cached_weighted_score: :desc)
-    elsif params[:commit].present? && params[:commit] == "Récents"
+    elsif params[:commit].present? && params[:commit] == "Récentes"
       @suggestions = Suggestion.order(created_at: :desc)
     else
       @suggestions = Suggestion.order(cached_weighted_score: :desc)
