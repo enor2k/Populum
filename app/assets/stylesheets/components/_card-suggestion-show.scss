@@ -107,22 +107,29 @@
   }
 
   .chg-status {
-    display: flex;
-    justify-content: center;
+    background-color: $green;
+    border-radius: 8px;
+    width: fit-content;
 
-  }
 
-  .status:focus {
-    background-color: $blue
-  }
+    .status-btn:disabled{
+      border: none;
+      background: none;
+      padding: 5px;
+      border-radius: 8px;
+    }
 
-  button{
-    border: none;
-    background: none;
-    color: $blue;
-    font-size: 25px;
-  }
-  button:disabled{
-    color: lightgrey;
+    .status-btn:hover{
+      background-color: $blue;
+      font-weight: 700;
+      color: white;
+    }
+
+    .status-btn-active{
+      background-color: $blue;
+      font-weight: 700;
+      color: white;
+    }
+
   }
 }
