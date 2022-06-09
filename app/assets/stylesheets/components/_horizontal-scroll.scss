@@ -1,14 +1,11 @@
 .horizontal-scroll {
   display: flex;
   overflow-x:scroll;
-  overflow-y: hidden;
-  height: 180px;
-  margin-bottom: 20px;
 
   .card-suggestion {
     min-width: 80%;
     margin-left: 0px;
-    padding: 8px 1px 9px 18px;
+    padding: 14px 1px 11px 18px;
 
     h5{
       font-size: 18px;
