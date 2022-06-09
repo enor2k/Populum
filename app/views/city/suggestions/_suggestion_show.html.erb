@@ -3,6 +3,7 @@
     <%= suggestion.user.avatar.attached? ? (cl_image_tag suggestion.user.avatar.key, class: 'avatar'): (image_tag "avatar.png", class: 'avatar')  %>
     <div class="card-suggestion-title">
       <h5><%= suggestion.title %></h5>
+      <p> <%= suggestion.user.first_name %> <%= suggestion.user.last_name %> </p>
         <div class="address"><%= suggestion.address %></div>
     </div>
   </div>
