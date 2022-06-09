@@ -65,3 +65,30 @@ body {
 .light-grey{
   color: lightgray;
 }
+
+.filtres{
+  display: flex;
+  justify-content:center;
+  background-color: $green;
+  width: fit-content;
+  border-radius: 8px;
+}
+
+.filtre-btn{
+  border: none;
+  background: none;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.filtre-btn:hover{
+  background-color: $blue;
+  font-weight: 700;
+  color: white;
+}
+
+.filtre-btn-active{
+  background-color: $blue;
+  font-weight: 700;
+  color: white;
+}
