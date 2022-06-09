@@ -7,7 +7,6 @@
         <i class="fa-solid fa-angle-left"></i>
       <% end %>
     </div>
-
     <h1> <%= @survey.title %> </h1>
     <hr>
     <br>
@@ -18,36 +17,52 @@
     <br>
     <hr>
     <br>
+    <div data-controller="answerjs">
+      <ul>
+        <% @survey.questions.each_with_index do |question, index| %>
+          <li>
+            Question n°<%= index + 1 %>: <%= question.title %>
+          </li>
 
-    <%= simple_form_for [@survey, Answer.new],  do |f| %>
-
-      <% @survey.questions.each_with_index do |question, index| %>
-
-        Question n°<%= index + 1 %>: <%= question.title %>
-        <% case question.answer_type %>
-        <% when 'single_choice' %>
-          <%= f.simple_fields_for :question do |q|%>
-            <% question.options.each do |option| %>
-              <%= q.radio_button_tag 'option_id', option.id %>
-              <%= q.option.title %>
+          <% case question.answer_type %>
+          <% when 'single_choice' %>
+            <%= simple_form_for [question, answer = Answer.new], data:{action:'change->answerjs#validate'}, html:{class:"#{question.answers.where(user: current_user).count > 0 ? "d-none" : ""}"} do |f| %>
+              <% question.options.each do |option| %>
+                <%= radio_button_tag 'option_id', option.id %>
+                <%= option.title %>
+              <% end %>
             <% end %>
-          <% end %>
-        <% when 'multiple_choice' %>
-          <%= f.simple_fields_for :question do |q|%>
-            <% question.options.each do |option| %>
-              <%= q.check_box_tag 'option_id', option.id %>
-              <%= q.option.title %>
+
+            <% if question.answers.where(user: current_user).count > 0 %>
+              <p class="reponsevalidee">Réponse validée !</p>
             <% end %>
+
+          <% when 'multiple_choice' %>
+            <%= simple_form_for [question, answer = Answer.new], data:{action:'change->answerjs#validate'}, html:{class:"#{question.answers.where(user: current_user).count > 0 ? "d-none" : ""}"} do |f| %>
+                <% question.options.each do |option| %>
+                  <%= check_box_tag 'option_id', option.id %>
+                  <%= option.title %>
+                <% end %>
+              <% end %>
+              <% if question.answers.where(user: current_user).count > 0 %>
+                <p class="reponsevalidee">Réponse validée !</p>
+              <% end %>
+          <% when 'long_answer' %>
+            <%= simple_form_for [question, Answer.new] do |f| %>
+              <%= f.input :answer_fields %>
+              <%= f.button :submit %>
+            <% end %>
+          <p class="reponsevalidee"><%= question.answers.where(user: current_user).count > 0 ? "Réponse validée !" : "" %></p>
           <% end %>
-        <% when 'long_answer' %>
-          <%= f.simple_fields_for :question do |q|%>
-            <%= q.input :answer_fields %>
-          <% end %>
+          <br>
+          <br>
         <% end %>
-      <% end %>
-      <br>
-    <%= f.button :submit, "Valider", class:"m-2 btn btn-outline-primary" %>
-    <% end %>
-    </ul>
+
+
+      </ul>
+    </div>
+        <div class="text-center">
+          <%= link_to "Terminer le sondage", root_path, class:"btn btn-primary" %>
+        </div>
   </div>
 </div>
