@@ -13,12 +13,12 @@
 
       <div class="card-box">
         <div class="dashboard-card">
-          <h3>Nombre de participants</h3>
-          <span class="highlight"><%= @survey.questions.first.answers.count %></span>
+          <h3>NOMBRE DE PARTICIPANTS</h3>
+          <p><%= @survey.questions.first.answers.count %></p>
         </div>
         <div class="dashboard-card">
-          <h3>Age moyen des participants:</h3>
-          <span class="highlight"><%= @survey.mean_user_age.round(1) %></span>
+          <h3>AGE MOYEN DES PARTICIPANTS</h3>
+          <p><%= @survey.mean_user_age.round(0) %> ans</p>
         </div>
       </div>
 
