@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment.suggestion = @suggestion
     @comment.user = current_user
     if @comment.save
-      redirect_to suggestion_path(@suggestion)
+      redirect_to suggestion_path(@suggestion, anchor: @comment.id)
     else
       render :new
     end
